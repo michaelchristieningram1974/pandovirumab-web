@@ -109,3 +109,109 @@ export default async function SideEffectsPage() {
                     <h3 style={{ color: freq.color, margin: 0, fontSize: '1.2rem' }}>
                       {freq.label}
                     </h3>
+                    <span style={{ color: '#888', fontSize: '0.85rem' }}>
+                      — {freq.description}
+                    </span>
+                  </div>
+                  <div style={{
+                    display: 'grid',
+                    gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
+                    gap: '16px',
+                  }}>
+                    {effects.map((effect: any, index: number) => (
+                      <div key={index} style={{
+                        background: 'white',
+                        padding: '24px',
+                        borderRadius: '8px',
+                        borderLeft: `4px solid ${freq.color}`,
+                        boxShadow: '0 2px 8px rgba(0,0,0,0.05)',
+                      }}>
+                        <h4 style={{ color: '#003087', margin: '0 0 8px', fontSize: '1rem' }}>
+                          {effect.name}
+                        </h4>
+                        {effect.description && (
+                          <p style={{ color: '#555', fontSize: '0.9rem', lineHeight: '1.6', margin: '0 0 8px' }}>
+                            {effect.description}
+                          </p>
+                        )}
+                        {effect.patientAdvice && (
+                          <p style={{ color: '#00857C', fontSize: '0.85rem', lineHeight: '1.5', margin: 0, fontStyle: 'italic' }}>
+                            💡 {effect.patientAdvice}
+                          </p>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )
+            })
+          )}
+        </div>
+      </section>
+
+      {/* REPORTING */}
+      <section style={{ padding: '60px 40px', background: 'white' }}>
+        <div style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center' }}>
+          <h2 style={{ color: '#003087', fontSize: '1.8rem', marginBottom: '16px' }}>
+            Reporting Side Effects
+          </h2>
+          <p style={{ color: '#555', lineHeight: '1.8', marginBottom: '24px' }}>
+            If you get any side effects, talk to your doctor, pharmacist or nurse. This includes any possible side effects not listed in this information. You can also report side effects directly via your national reporting scheme.
+          </p>
+          <p style={{ color: '#555', lineHeight: '1.8' }}>
+            By reporting side effects you can help provide more information on the safety of this medicine.
+          </p>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section style={{
+        background: '#003087',
+        color: 'white',
+        padding: '60px 40px',
+        textAlign: 'center',
+      }}>
+        <h2 style={{ fontSize: '2rem', marginBottom: '16px' }}>Have questions?</h2>
+        <p style={{ opacity: 0.85, marginBottom: '32px', fontSize: '1.05rem' }}>
+          Read our FAQs or speak to your healthcare provider.
+        </p>
+        <div style={{ display: 'flex', gap: '20px', justifyContent: 'center', flexWrap: 'wrap' }}>
+          <a href="/faq" style={{
+            background: 'white',
+            color: '#003087',
+            padding: '14px 32px',
+            borderRadius: '4px',
+            textDecoration: 'none',
+            fontWeight: 'bold',
+            fontSize: '1rem',
+          }}>
+            Read FAQs
+          </a>
+          <a href="/contact" style={{
+            background: 'transparent',
+            color: 'white',
+            padding: '14px 32px',
+            borderRadius: '4px',
+            textDecoration: 'none',
+            fontWeight: 'bold',
+            fontSize: '1rem',
+            border: '2px solid white',
+          }}>
+            Contact Us
+          </a>
+        </div>
+      </section>
+
+      {/* DISCLAIMER */}
+      <section style={{
+        background: '#1A1A2E',
+        color: '#aaa',
+        padding: '20px 40px',
+        textAlign: 'center',
+        fontSize: '0.8rem',
+      }}>
+        <p>This website is intended for informational purposes only. Please consult your healthcare provider before starting any medication.</p>
+      </section>
+    </main>
+  )
+}
