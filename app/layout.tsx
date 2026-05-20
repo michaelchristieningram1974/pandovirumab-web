@@ -94,4 +94,4 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             <span style={{ color: '#003087', fontWeight: 'bold', fontSize: '1.4rem' }}>
               Pandovab
             </span>
-            <span style={{ color: '#00857C', fontSize: '0.7rem', lett
+            <span style={{ color: '#00857C', fontSize: '0.7rem', letterSpacing: '0.05em' }}></span>
