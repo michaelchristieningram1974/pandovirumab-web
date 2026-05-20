@@ -12,7 +12,76 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
-      <body style={{ margin: 0, fontFamily: 'system-ui, -apple-system, sans-serif' }}>
+      <head>
+        <style>{`
+          * { box-sizing: border-box; }
+          body { margin: 0; font-family: system-ui, -apple-system, sans-serif; }
+
+          .nav-links {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+          }
+
+          .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 4px;
+          }
+
+          .hamburger span {
+            display: block;
+            width: 25px;
+            height: 2px;
+            background: #003087;
+          }
+
+          .mobile-menu {
+            display: none;
+            flex-direction: column;
+            background: white;
+            border-top: 1px solid #e0e0e0;
+            padding: 16px 40px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.06);
+          }
+
+          .mobile-menu a {
+            color: #333;
+            text-decoration: none;
+            font-size: 0.95rem;
+            padding: 12px 0;
+            border-bottom: 1px solid #f0f0f0;
+          }
+
+          .mobile-menu a:last-child {
+            border-bottom: none;
+          }
+
+          .mobile-menu .hcp-link {
+            color: #003087;
+            font-weight: bold;
+          }
+
+          @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hamburger { display: flex; }
+            .mobile-menu.open { display: flex; }
+          }
+        `}</style>
+        <script dangerouslySetInnerHTML={{
+          __html: `
+            function toggleMenu() {
+              var menu = document.getElementById('mobile-menu');
+              menu.classList.toggle('open');
+            }
+          `
+        }} />
+      </head>
+      <body>
 
         {/* NAVIGATION */}
         <nav style={{
@@ -43,157 +112,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             </span>
           </a>
 
-          {/* NAV LINKS */}
-          <div style={{ display: 'flex', gap: '32px', alignItems: 'center' }}>
-            <a href="/product" style={{ color: '#333', textDecoration: 'none', fontSize: '0.95rem' }}>
-              About Pandovab
-            </a>
-            <a href="/how-it-works" style={{ color: '#333', textDecoration: 'none', fontSize: '0.95rem' }}>
-              How It Works
-            </a>
-            <a href="/side-effects" style={{ color: '#333', textDecoration: 'none', fontSize: '0.95rem' }}>
-              Side Effects
-            </a>
-            <a href="/case-studies" style={{ color: '#333', textDecoration: 'none', fontSize: '0.95rem' }}>
-              Case Studies
-            </a>
-            <a href="/faq" style={{ color: '#333', textDecoration: 'none', fontSize: '0.95rem' }}>
-              FAQ
-            </a>
-            <a href="/contact" style={{ color: '#333', textDecoration: 'none', fontSize: '0.95rem' }}>
-              Contact
-            </a>
-            <a href="/hcp" style={{
-              background: '#003087',
-              color: 'white',
-              padding: '8px 20px',
-              borderRadius: '4px',
-              textDecoration: 'none',
-              fontSize: '0.9rem',
-              fontWeight: 'bold',
-            }}>
-              For HCPs
-            </a>
-          </div>
-        </nav>
-
-        {/* PAGE CONTENT */}
-        {children}
-
-        {/* FOOTER */}
-        <footer style={{ background: '#003087', color: 'white', padding: '60px 40px 30px' }}>
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-            gap: '40px',
-            maxWidth: '1200px',
-            margin: '0 auto 40px',
-          }}>
-            {/* BRAND */}
-            <div>
-              <div style={{ fontWeight: 'bold', fontSize: '1.3rem', marginBottom: '8px' }}>
-                Pandovab
-              </div>
-              <div style={{ color: '#00857C', fontSize: '0.8rem', marginBottom: '16px' }}>
-                pandovirumab
-              </div>
-              <p style={{ color: '#aaa', fontSize: '0.85rem', lineHeight: '1.6' }}>
-                A new standard in blood pressure control.
-              </p>
-            </div>
-
-            {/* PATIENTS */}
-            <div>
-              <h4 style={{ marginBottom: '16px', fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '0.05em', color: '#00857C' }}>
-                For Patients
-              </h4>
-              {[
-                { label: 'About Pandovab', href: '/product' },
-                { label: 'How It Works', href: '/how-it-works' },
-                { label: 'Side Effects', href: '/side-effects' },
-                { label: 'FAQ', href: '/faq' },
-                { label: 'Contact', href: '/contact' },
-              ].map((link) => (
-                <a key={link.href} href={link.href} style={{
-                  display: 'block',
-                  color: '#ccc',
-                  textDecoration: 'none',
-                  fontSize: '0.9rem',
-                  marginBottom: '8px',
-                }}>
-                  {link.label}
-                </a>
-              ))}
-            </div>
-
-            {/* HCP */}
-            <div>
-              <h4 style={{ marginBottom: '16px', fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '0.05em', color: '#00857C' }}>
-                For Healthcare Professionals
-              </h4>
-              {[
-                { label: 'Clinical Trials', href: '/hcp/clinical-trials' },
-                { label: 'Dosing Guide', href: '/hcp/dosing' },
-                { label: 'Drug Interactions', href: '/hcp/drug-interactions' },
-                { label: 'Case Studies', href: '/hcp/case-studies' },
-                { label: 'Prescribing Information', href: '/hcp/prescribing-info' },
-              ].map((link) => (
-                <a key={link.href} href={link.href} style={{
-                  display: 'block',
-                  color: '#ccc',
-                  textDecoration: 'none',
-                  fontSize: '0.9rem',
-                  marginBottom: '8px',
-                }}>
-                  {link.label}
-                </a>
-              ))}
-            </div>
-
-            {/* LEGAL */}
-            <div>
-              <h4 style={{ marginBottom: '16px', fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '0.05em', color: '#00857C' }}>
-                Legal
-              </h4>
-              {[
-                { label: 'Privacy Policy', href: '/privacy' },
-                { label: 'Terms of Use', href: '/terms' },
-                { label: 'Cookie Policy', href: '/cookies' },
-              ].map((link) => (
-                <a key={link.href} href={link.href} style={{
-                  display: 'block',
-                  color: '#ccc',
-                  textDecoration: 'none',
-                  fontSize: '0.9rem',
-                  marginBottom: '8px',
-                }}>
-                  {link.label}
-                </a>
-              ))}
-            </div>
-          </div>
-
-          {/* BOTTOM BAR */}
-          <div style={{
-            borderTop: '1px solid rgba(255,255,255,0.1)',
-            paddingTop: '24px',
-            maxWidth: '1200px',
-            margin: '0 auto',
-            display: 'flex',
-            justifyContent: 'space-between',
-            flexWrap: 'wrap',
-            gap: '12px',
-          }}>
-            <p style={{ color: '#aaa', fontSize: '0.8rem', margin: 0 }}>
-              © 2026 Pandovab. All rights reserved.
-            </p>
-            <p style={{ color: '#aaa', fontSize: '0.8rem', margin: 0 }}>
-              This site is intended for informational purposes only. Always consult your healthcare provider.
-            </p>
-          </div>
-        </footer>
-
-      </body>
-    </html>
-  )
-}
+          {/* DESKTOP NAV LINKS */}
+          <div className="nav-links">
+            <a href="/product" style={{ color: '#333', textDecoration: 'none', fontSize: '0.95rem' }}>About Pandovab</a>
+            <a href="/how-it-works" style={{ color: '#333', textDecoration: 'none', fontSize: '0.95rem' }}>How It Works</a>
+            <a href="/side-effects" style={{ color: '#333', textDecoration: 'none', fontSize: '0.95rem'
