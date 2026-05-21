@@ -14,88 +14,133 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <head>
+        <script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async></script>
         <style>{`
-          * { box-sizing: border-box; }
-          body { margin: 0; font-family: system-ui, -apple-system, sans-serif; }
+          * { box-sizing: border-box; margin: 0; padding: 0; }
+          body { font-family: system-ui, -apple-system, Arial, sans-serif; color: #1A1A1A; background: #fff; }
+          a { text-decoration: none; }
+
+          /* NAV */
+          .nav-wrapper { background: white; border-bottom: 1px solid #E0E0E0; position: sticky; top: 0; z-index: 100; }
+          .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 40px; display: flex; align-items: center; justify-content: space-between; height: 70px; }
+          .nav-logo-name { color: #0000CC; font-weight: 800; font-size: 1.4rem; letter-spacing: -0.02em; }
+          .nav-logo-sub { color: #444; font-size: 0.7rem; letter-spacing: 0.05em; }
           .nav-links { display: flex; gap: 32px; align-items: center; }
+          .nav-links a { color: #1A1A1A; font-size: 0.95rem; font-weight: 500; transition: color 0.2s; }
+          .nav-links a:hover { color: #0000CC; }
+          .nav-btn { background: #0000CC; color: white !important; padding: 10px 22px; border-radius: 50px; font-weight: bold !important; font-size: 0.85rem !important; }
+          .nav-btn:hover { background: #0000AA; color: white !important; }
+
+          /* HAMBURGER */
           .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
-          .hamburger span { display: block; width: 25px; height: 2px; background: #003087; }
-          .mobile-menu { display: none; flex-direction: column; background: white; border-top: 1px solid #e0e0e0; padding: 16px 40px; box-shadow: 0 4px 8px rgba(0,0,0,0.06); position: sticky; top: 70px; z-index: 99; }
-          .mobile-menu a { color: #333; text-decoration: none; font-size: 0.95rem; padding: 12px 0; border-bottom: 1px solid #f0f0f0; }
+          .hamburger span { display: block; width: 25px; height: 2px; background: #1A1A1A; }
+          .mobile-menu { display: none; flex-direction: column; background: white; border-top: 1px solid #E0E0E0; padding: 16px 40px; box-shadow: 0 4px 8px rgba(0,0,0,0.06); position: sticky; top: 70px; z-index: 99; }
+          .mobile-menu a { color: #1A1A1A; font-size: 0.95rem; padding: 12px 0; border-bottom: 1px solid #f0f0f0; display: block; font-weight: 500; }
           .mobile-menu a:last-child { border-bottom: none; }
-          .mobile-menu .hcp-link { color: #003087; font-weight: bold; }
-          @media (max-width: 768px) { .nav-links { display: none; } .hamburger { display: flex; } .mobile-menu.open { display: flex; } }
+          .mobile-menu .hcp-link { color: #0000CC; font-weight: bold; }
+
+          @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hamburger { display: flex; }
+            .mobile-menu.open { display: flex; }
+            .nav-inner { padding: 0 20px; }
+          }
+
+          /* FOOTER */
+          .footer { background: #0000CC; color: white; padding: 60px 40px 30px; }
+          .footer-inner { max-width: 1200px; margin: 0 auto; }
+          .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 40px; }
+          .footer-brand-name { font-weight: 800; font-size: 1.3rem; margin-bottom: 4px; }
+          .footer-brand-sub { color: rgba(255,255,255,0.6); font-size: 0.8rem; margin-bottom: 16px; }
+          .footer-brand-desc { color: rgba(255,255,255,0.7); font-size: 0.85rem; line-height: 1.7; }
+          .footer-heading { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(255,255,255,0.6); margin-bottom: 16px; font-weight: 600; }
+          .footer-link { display: block; color: rgba(255,255,255,0.85); font-size: 0.9rem; margin-bottom: 10px; transition: color 0.2s; }
+          .footer-link:hover { color: white; }
+          .footer-bottom { border-top: 1px solid rgba(255,255,255,0.15); padding-top: 24px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+          .footer-bottom p { color: rgba(255,255,255,0.5); font-size: 0.8rem; }
         `}</style>
-
-
-<script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async></script>
-
-
-
-
       </head>
       <body>
-        <nav style={{ background: 'white', borderBottom: '1px solid #e0e0e0', padding: '0 40px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '70px', position: 'sticky', top: 0, zIndex: 100, boxShadow: '0 2px 8px rgba(0,0,0,0.06)' }}>
-          <a href="/" style={{ textDecoration: 'none', display: 'flex', flexDirection: 'column', lineHeight: 1.2 }}>
-            <span style={{ color: '#003087', fontWeight: 'bold', fontSize: '1.4rem' }}>Pandovab</span>
-            <span style={{ color: '#00857C', fontSize: '0.7rem', letterSpacing: '0.05em' }}>pandovirumab</span>
-          </a>
-          <div className="nav-links">
-            <a href="/product" style={{ color: '#333', textDecoration: 'none', fontSize: '0.95rem' }}>About Pandovab</a>
-            <a href="/how-it-works" style={{ color: '#333', textDecoration: 'none', fontSize: '0.95rem' }}>How It Works</a>
-            <a href="/side-effects" style={{ color: '#333', textDecoration: 'none', fontSize: '0.95rem' }}>Side Effects</a>
-            <a href="/case-studies" style={{ color: '#333', textDecoration: 'none', fontSize: '0.95rem' }}>Case Studies</a>
-            <a href="/faq" style={{ color: '#333', textDecoration: 'none', fontSize: '0.95rem' }}>FAQ</a>
-            <a href="/contact" style={{ color: '#333', textDecoration: 'none', fontSize: '0.95rem' }}>Contact</a>
-            <a href="/hcp" style={{ background: '#003087', color: 'white', padding: '8px 20px', borderRadius: '4px', textDecoration: 'none', fontSize: '0.9rem', fontWeight: 'bold' }}>For HCPs</a>
+
+        <div className="nav-wrapper">
+          <div className="nav-inner">
+            <a href="/" style={{ textDecoration: 'none' }}>
+              <div className="nav-logo-name">Pandovab</div>
+              <div className="nav-logo-sub">pandovirumab</div>
+            </a>
+
+            <div className="nav-links">
+              <a href="/product">About Pandovab</a>
+              <a href="/how-it-works">How It Works</a>
+              <a href="/side-effects">Side Effects</a>
+              <a href="/case-studies">Case Studies</a>
+              <a href="/faq">FAQ</a>
+              <a href="/voice-assistant">Voice Assistant</a>
+              <a href="/contact">Contact</a>
+              <a href="/hcp" className="nav-btn">For HCPs</a>
+            </div>
+
+            <Hamburger />
           </div>
-          <Hamburger />
-        </nav>
+        </div>
+
         <div id="mobile-menu" className="mobile-menu">
           <a href="/product">About Pandovab</a>
           <a href="/how-it-works">How It Works</a>
           <a href="/side-effects">Side Effects</a>
           <a href="/case-studies">Case Studies</a>
           <a href="/faq">FAQ</a>
+          <a href="/voice-assistant">Voice Assistant</a>
           <a href="/contact">Contact</a>
           <a href="/hcp" className="hcp-link">For HCPs</a>
         </div>
+
         {children}
-        <footer style={{ background: '#003087', color: 'white', padding: '60px 40px 30px' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '40px', maxWidth: '1200px', margin: '0 auto 40px' }}>
-            <div>
-              <div style={{ fontWeight: 'bold', fontSize: '1.3rem', marginBottom: '8px' }}>Pandovab</div>
-              <div style={{ color: '#00857C', fontSize: '0.8rem', marginBottom: '16px' }}>pandovirumab</div>
-              <p style={{ color: '#aaa', fontSize: '0.85rem', lineHeight: '1.6' }}>A new standard in blood pressure control.</p>
+
+        <footer className="footer">
+          <div className="footer-inner">
+            <div className="footer-grid">
+              <div>
+                <div className="footer-brand-name">Pandovab</div>
+                <div className="footer-brand-sub">pandovirumab</div>
+                <p className="footer-brand-desc">A new standard in blood pressure control.</p>
+              </div>
+
+              <div>
+                <h4 className="footer-heading">For Patients</h4>
+                <a href="/product" className="footer-link">About Pandovab</a>
+                <a href="/how-it-works" className="footer-link">How It Works</a>
+                <a href="/side-effects" className="footer-link">Side Effects</a>
+                <a href="/faq" className="footer-link">FAQ</a>
+                <a href="/voice-assistant" className="footer-link">Voice Assistant</a>
+                <a href="/contact" className="footer-link">Contact</a>
+              </div>
+
+              <div>
+                <h4 className="footer-heading">For Healthcare Professionals</h4>
+                <a href="/hcp/clinical-trials" className="footer-link">Clinical Trials</a>
+                <a href="/hcp/dosing" className="footer-link">Dosing Guide</a>
+                <a href="/hcp/drug-interactions" className="footer-link">Drug Interactions</a>
+                <a href="/hcp/case-studies" className="footer-link">Case Studies</a>
+                <a href="/hcp/prescribing-info" className="footer-link">Prescribing Information</a>
+                <a href="/hcp/real-world-evidence" className="footer-link">Real World Evidence</a>
+              </div>
+
+              <div>
+                <h4 className="footer-heading">Legal</h4>
+                <a href="/privacy" className="footer-link">Privacy Policy</a>
+                <a href="/terms" className="footer-link">Terms of Use</a>
+                <a href="/cookies" className="footer-link">Cookie Policy</a>
+              </div>
             </div>
-            <div>
-              <h4 style={{ marginBottom: '16px', fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '0.05em', color: '#00857C' }}>For Patients</h4>
-              <a href="/product" style={{ display: 'block', color: '#ccc', textDecoration: 'none', fontSize: '0.9rem', marginBottom: '8px' }}>About Pandovab</a>
-              <a href="/how-it-works" style={{ display: 'block', color: '#ccc', textDecoration: 'none', fontSize: '0.9rem', marginBottom: '8px' }}>How It Works</a>
-              <a href="/side-effects" style={{ display: 'block', color: '#ccc', textDecoration: 'none', fontSize: '0.9rem', marginBottom: '8px' }}>Side Effects</a>
-              <a href="/faq" style={{ display: 'block', color: '#ccc', textDecoration: 'none', fontSize: '0.9rem', marginBottom: '8px' }}>FAQ</a>
-              <a href="/contact" style={{ display: 'block', color: '#ccc', textDecoration: 'none', fontSize: '0.9rem', marginBottom: '8px' }}>Contact</a>
+
+            <div className="footer-bottom">
+              <p>© 2026 Pandovab. All rights reserved.</p>
+              <p>This site is intended for informational purposes only. Always consult your healthcare provider.</p>
             </div>
-            <div>
-              <h4 style={{ marginBottom: '16px', fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '0.05em', color: '#00857C' }}>For Healthcare Professionals</h4>
-              <a href="/hcp/clinical-trials" style={{ display: 'block', color: '#ccc', textDecoration: 'none', fontSize: '0.9rem', marginBottom: '8px' }}>Clinical Trials</a>
-              <a href="/hcp/dosing" style={{ display: 'block', color: '#ccc', textDecoration: 'none', fontSize: '0.9rem', marginBottom: '8px' }}>Dosing Guide</a>
-              <a href="/hcp/drug-interactions" style={{ display: 'block', color: '#ccc', textDecoration: 'none', fontSize: '0.9rem', marginBottom: '8px' }}>Drug Interactions</a>
-              <a href="/hcp/case-studies" style={{ display: 'block', color: '#ccc', textDecoration: 'none', fontSize: '0.9rem', marginBottom: '8px' }}>Case Studies</a>
-              <a href="/hcp/prescribing-info" style={{ display: 'block', color: '#ccc', textDecoration: 'none', fontSize: '0.9rem', marginBottom: '8px' }}>Prescribing Information</a>
-            </div>
-            <div>
-              <h4 style={{ marginBottom: '16px', fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '0.05em', color: '#00857C' }}>Legal</h4>
-              <a href="/privacy" style={{ display: 'block', color: '#ccc', textDecoration: 'none', fontSize: '0.9rem', marginBottom: '8px' }}>Privacy Policy</a>
-              <a href="/terms" style={{ display: 'block', color: '#ccc', textDecoration: 'none', fontSize: '0.9rem', marginBottom: '8px' }}>Terms of Use</a>
-              <a href="/cookies" style={{ display: 'block', color: '#ccc', textDecoration: 'none', fontSize: '0.9rem', marginBottom: '8px' }}>Cookie Policy</a>
-            </div>
-          </div>
-          <div style={{ borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '24px', maxWidth: '1200px', margin: '0 auto', display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: '12px' }}>
-            <p style={{ color: '#aaa', fontSize: '0.8rem', margin: 0 }}>© 2026 Pandovab. All rights reserved.</p>
-            <p style={{ color: '#aaa', fontSize: '0.8rem', margin: 0 }}>This site is intended for informational purposes only. Always consult your healthcare provider.</p>
           </div>
         </footer>
+
       </body>
     </html>
   )
