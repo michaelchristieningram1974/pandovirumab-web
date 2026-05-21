@@ -26,6 +26,13 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           .mobile-menu .hcp-link { color: #003087; font-weight: bold; }
           @media (max-width: 768px) { .nav-links { display: none; } .hamburger { display: flex; } .mobile-menu.open { display: flex; } }
         `}</style>
+
+
+<script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async></script>
+
+
+
+
       </head>
       <body>
         <nav style={{ background: 'white', borderBottom: '1px solid #e0e0e0', padding: '0 40px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '70px', position: 'sticky', top: 0, zIndex: 100, boxShadow: '0 2px 8px rgba(0,0,0,0.06)' }}>
