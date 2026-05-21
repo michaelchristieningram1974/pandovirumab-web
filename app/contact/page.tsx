@@ -183,6 +183,30 @@ export default async function ContactPage() {
       }}>
         <p>This website is intended for informational purposes only. Please consult your healthcare provider before starting any medication.</p>
       </section>
+    
+    {/* SCHEMA.ORG JSON-LD */}
+<script
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{
+    __html: JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "ContactPage",
+      "name": "Contact Pandovab",
+      "description": "Get in touch with the Pandovab team for medical information, patient support or general enquiries.",
+      "url": "https://pandovab.com/contact",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": settings?.email ?? "info@pandovab.com",
+        "telephone": settings?.phone ?? "",
+        "contactType": "Medical Information"
+      }
+    })
+  }}
+/>
+    
+    
+    
+    
     </main>
   )
 }

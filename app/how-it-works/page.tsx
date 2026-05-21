@@ -176,6 +176,41 @@ export default async function HowItWorksPage() {
       }}>
         <p>This website is intended for informational purposes only. Please consult your healthcare provider before starting any medication.</p>
       </section>
+    
+    
+    {/* SCHEMA.ORG JSON-LD */}
+<script
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{
+    __html: JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "MedicalWebPage",
+      "name": "How Pandovab Works",
+      "description": "Learn how Pandovab (pandovirumab) works to treat hypertension through its unique mechanism of action.",
+      "url": "https://pandovab.com/how-it-works",
+      "about": {
+        "@type": "Drug",
+        "name": "Pandovab",
+        "alternateName": "pandovirumab",
+        "mechanismOfAction": "Pandovab works by targeting key pathways involved in blood pressure regulation.",
+        "indication": {
+          "@type": "MedicalIndication",
+          "name": "Hypertension"
+        }
+      },
+      "audience": {
+        "@type": "Patient"
+      }
+    })
+  }}
+/>
+    
+    
+    
+    
+    
+    
+    
     </main>
   )
 }

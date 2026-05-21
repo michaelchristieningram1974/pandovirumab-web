@@ -174,6 +174,31 @@ export default async function CaseStudiesPage() {
       }}>
         <p>This website is intended for informational purposes only. Please consult your healthcare provider before starting any medication.</p>
       </section>
+    
+    {/* SCHEMA.ORG JSON-LD */}
+<script
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{
+    __html: JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "MedicalWebPage",
+      "name": "Pandovab Case Studies",
+      "description": "Real world case studies showing how Pandovab (pandovirumab) has helped patients manage hypertension.",
+      "url": "https://pandovab.com/case-studies",
+      "about": {
+        "@type": "Drug",
+        "name": "Pandovab",
+        "alternateName": "pandovirumab"
+      },
+      "audience": {
+        "@type": "Patient"
+      }
+    })
+  }}
+/>
+    
+    
+    
     </main>
   )
 }

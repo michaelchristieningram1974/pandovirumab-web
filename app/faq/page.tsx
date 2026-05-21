@@ -110,6 +110,39 @@ export default async function FaqPage() {
       }}>
         <p>This website is intended for informational purposes only. Please consult your healthcare provider before starting any medication.</p>
       </section>
+    
+    {/* SCHEMA.ORG JSON-LD */}
+<script
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{
+    __html: JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "name": "Pandovab FAQ",
+      "description": "Frequently asked questions about Pandovab (pandovirumab)",
+      "url": "https://pandovab.com/faq",
+      "mainEntity": faqs.map((faq: any) => ({
+        "@type": "Question",
+        "name": faq.question,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": faq.answer?.map((block: any) =>
+            block.children?.map((child: any) => child.text).join('')
+          ).join(' ')
+        }
+      }))
+    })
+  }}
+/>
+    
+    
+    
+    
+    
+    
+    
+    
+    
     </main>
   )
 }

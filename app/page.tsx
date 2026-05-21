@@ -112,6 +112,43 @@ export default async function Home() {
       }}>
         <p>This website is intended for informational purposes only. Please consult your healthcare provider before starting any medication.</p>
       </section>
+    
+    
+    {/* SCHEMA.ORG JSON-LD */}
+<script
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{
+    __html: JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Drug",
+      "name": "Pandovab",
+      "alternateName": "pandovirumab",
+      "description": "Pandovab (pandovirumab) is a prescription medication indicated for the treatment of hypertension in adults aged 18 and above.",
+      "url": "https://pandovab.com",
+      "medicineSystem": "https://schema.org/WesternConventional",
+      "relevantSpecialty": "https://schema.org/Cardiovascular",
+      "recognizingAuthority": {
+        "@type": "Organization",
+        "name": "Medicines and Healthcare products Regulatory Agency"
+      },
+      "indication": {
+        "@type": "MedicalIndication",
+        "name": "Hypertension",
+        "alternateName": "High Blood Pressure"
+      },
+      "administrationRoute": "Oral",
+      "drugClass": "Antihypertensive",
+      "manufacturer": {
+        "@type": "Organization",
+        "name": "Pandovab Pharmaceuticals"
+      }
+    })
+  }}
+/>
+    
+  
+    
+    
     </main>
   )
 }

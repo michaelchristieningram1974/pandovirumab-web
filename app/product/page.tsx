@@ -202,6 +202,44 @@ export default async function ProductPage() {
       }}>
         <p>This website is intended for informational purposes only. Please consult your healthcare provider before starting any medication.</p>
       </section>
+    
+    {/* SCHEMA.ORG JSON-LD */}
+<script
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{
+    __html: JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "MedicalWebPage",
+      "name": "About Pandovab (pandovirumab)",
+      "description": "Learn about Pandovab (pandovirumab), a prescription medication for the treatment of hypertension in adults.",
+      "url": "https://pandovab.com/product",
+      "about": {
+        "@type": "Drug",
+        "name": "Pandovab",
+        "alternateName": "pandovirumab",
+        "indication": {
+          "@type": "MedicalIndication",
+          "name": "Hypertension"
+        },
+        "administrationRoute": "Oral",
+        "drugClass": "Antihypertensive"
+      },
+      "audience": {
+        "@type": "Patient"
+      },
+      "medicalAudience": "Patient"
+    })
+  }}
+/>
+
+
+
+
+
+    
+    
+    
+    
     </main>
   )
 }

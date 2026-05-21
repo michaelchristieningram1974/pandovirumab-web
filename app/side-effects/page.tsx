@@ -212,6 +212,48 @@ export default async function SideEffectsPage() {
       }}>
         <p>This website is intended for informational purposes only. Please consult your healthcare provider before starting any medication.</p>
       </section>
+    
+    {/* SCHEMA.ORG JSON-LD */}
+<script
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{
+    __html: JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "MedicalWebPage",
+      "name": "Pandovab Side Effects",
+      "description": "Learn about the possible side effects of Pandovab (pandovirumab) including common, uncommon and rare side effects.",
+      "url": "https://pandovab.com/side-effects",
+      "about": {
+        "@type": "Drug",
+        "name": "Pandovab",
+        "alternateName": "pandovirumab",
+        "sideEffect": sideEffects.map((effect: any) => ({
+          "@type": "MedicalSymptom",
+          "name": effect.name,
+          "description": effect.description ?? ""
+        }))
+      },
+      "audience": {
+        "@type": "Patient"
+      }
+    })
+  }}
+/>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     </main>
   )
 }
