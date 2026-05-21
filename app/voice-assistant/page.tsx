@@ -77,7 +77,7 @@ export default function VoiceAssistantPage() {
 
             {/* ELEVENLABS EMBED */}
             <div style={{ display: 'flex', justifyContent: 'center' }}>
-              <elevenlabs-convai agent-id="agent_1501kr3j7m7kf85t6dscbkgehpmh"></elevenlabs-convai>
+              <div dangerouslySetInnerHTML={{ __html: '<elevenlabs-convai agent-id="agent_1501kr3j7m7kf85t6dscbkgehpmh"></elevenlabs-convai>' }} />
             </div>
           </div>
 
