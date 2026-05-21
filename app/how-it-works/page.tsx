@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import { client } from '../../sanity.client'
 
+export const revalidate = 60
+
 export const metadata: Metadata = {
   title: 'How Pandovab Works',
   description: 'Learn how Pandovab (pandovirumab) works to treat hypertension. Understand the mechanism of action and step by step process of how it controls blood pressure.',

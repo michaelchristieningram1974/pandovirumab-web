@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 
+export const revalidate = 60
+
 export const metadata: Metadata = {
   title: 'Healthcare Professional Portal | Pandovab (pandovirumab)',
   description: 'Access clinical information about Pandovab (pandovirumab) including clinical trial data, dosing guidance, drug interactions and prescribing information.',

@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import { client } from '../../../sanity.client'
 
+export const revalidate = 60
+
 export const metadata: Metadata = {
   title: 'Real World Evidence | Pandovab (pandovirumab) HCP',
   description: 'Real world evidence studies for Pandovab (pandovirumab) including observational studies, registry data and real world outcomes.',

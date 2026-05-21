@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import { client } from '../../sanity.client'
 
+export const revalidate = 60
+
 export const metadata: Metadata = {
   title: 'Side Effects | Pandovab (pandovirumab)',
   description: 'Learn about the possible side effects of Pandovab (pandovirumab). Understand common, uncommon and rare side effects and what to do if you experience them.',

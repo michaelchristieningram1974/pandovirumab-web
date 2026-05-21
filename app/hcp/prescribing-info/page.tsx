@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import { client } from '../../../sanity.client'
 
+export const revalidate = 60
+
 export const metadata: Metadata = {
   title: 'Prescribing Information | Pandovab (pandovirumab) HCP',
   description: 'Full prescribing information for Pandovab (pandovirumab) including SmPC, patient information leaflet and regional prescribing documents.',

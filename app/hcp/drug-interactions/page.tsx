@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import { client } from '../../../sanity.client'
 
+export const revalidate = 60
+
 export const metadata: Metadata = {
   title: 'Drug Interactions | Pandovab (pandovirumab) HCP',
   description: 'Known drug interactions for Pandovab (pandovirumab) including severity levels, clinical effects and management recommendations.',
