@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { client } from '../../sanity.client'
+import { theme } from '../../theme'
 
 export const revalidate = 60
 
@@ -32,110 +33,64 @@ export default async function CaseStudiesPage() {
   return (
     <main>
       {/* HERO */}
-      <section style={{
-        background: 'linear-gradient(135deg, #003087 0%, #00857C 100%)',
-        color: 'white',
-        padding: '80px 40px',
-        textAlign: 'center',
-      }}>
-        <h1 style={{ fontSize: '2.5rem', fontWeight: 'bold', marginBottom: '20px' }}>
-          Case Studies
-        </h1>
-        <p style={{ fontSize: '1.1rem', opacity: 0.9, maxWidth: '650px', margin: '0 auto' }}>
-          Real world outcomes showing how Pandovab has helped patients manage their blood pressure
-        </p>
+      <section style={{ background: '#F5F5F5', padding: '100px 40px' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+          <p style={{ color: '#0000CC', fontSize: '0.85rem', fontWeight: '600', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '16px' }}>
+            Real World Outcomes
+          </p>
+          <h1 style={{ fontSize: '3rem', fontWeight: '800', lineHeight: '1.15', marginBottom: '24px', color: '#1A1A1A', fontFamily: 'Georgia, serif', maxWidth: '700px' }}>
+            Case Studies
+          </h1>
+          <p style={{ fontSize: '1.2rem', color: '#444', lineHeight: '1.7', maxWidth: '600px' }}>
+            Real world outcomes showing how Pandovab has helped patients manage their blood pressure
+          </p>
+        </div>
       </section>
 
       {/* CASE STUDIES GRID */}
-      <section style={{ padding: '80px 40px', background: '#F5F7FA' }}>
+      <section style={{ background: '#FFFFFF', padding: '100px 40px' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
           {caseStudies.length === 0 ? (
-            <p style={{ textAlign: 'center', color: '#555' }}>
-              Case studies coming soon.
-            </p>
+            <p style={{ color: '#555' }}>Case studies coming soon.</p>
           ) : (
-            <div style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))',
-              gap: '30px',
-            }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: '40px' }}>
               {caseStudies.map((cs: any) => (
                 <a key={cs._id} href={`/case-studies/${cs.slug?.current}`} style={{
                   textDecoration: 'none',
                   display: 'block',
-                  background: 'white',
-                  borderRadius: '8px',
-                  overflow: 'hidden',
-                  boxShadow: '0 2px 12px rgba(0,0,0,0.06)',
-                  borderTop: '4px solid #00857C',
-                  transition: 'transform 0.2s',
+                  borderTop: '3px solid #0000CC',
+                  paddingTop: '24px',
                 }}>
-                  <div style={{ padding: '32px' }}>
-                    {/* PATIENT PROFILE TAGS */}
-                    <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginBottom: '16px' }}>
-                      {cs.patientProfile?.age && (
-                        <span style={{
-                          background: '#E6F4F3',
-                          color: '#00857C',
-                          padding: '4px 12px',
-                          borderRadius: '20px',
-                          fontSize: '0.8rem',
-                          fontWeight: 'bold',
-                        }}>
-                          Age: {cs.patientProfile.age}
-                        </span>
-                      )}
-                      {cs.patientProfile?.gender && (
-                        <span style={{
-                          background: '#E6F4F3',
-                          color: '#00857C',
-                          padding: '4px 12px',
-                          borderRadius: '20px',
-                          fontSize: '0.8rem',
-                          fontWeight: 'bold',
-                        }}>
-                          {cs.patientProfile.gender}
-                        </span>
-                      )}
-                    </div>
-
-                    <h2 style={{ color: '#003087', fontSize: '1.3rem', marginBottom: '16px', lineHeight: '1.4' }}>
-                      {cs.title}
-                    </h2>
-
-                    {cs.clinicalChallenge && (
-                      <p style={{ color: '#555', lineHeight: '1.7', fontSize: '0.95rem', marginBottom: '20px' }}>
-                        {cs.clinicalChallenge.length > 150
-                          ? cs.clinicalChallenge.substring(0, 150) + '...'
-                          : cs.clinicalChallenge}
-                      </p>
+                  <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginBottom: '16px' }}>
+                    {cs.patientProfile?.age && (
+                      <span style={{ background: '#F5F5F5', color: '#444', padding: '4px 12px', borderRadius: '50px', fontSize: '0.8rem', fontWeight: '600' }}>
+                        Age: {cs.patientProfile.age}
+                      </span>
                     )}
-
-                    {cs.keyTakeaways?.length > 0 && (
-                      <div>
-                        <p style={{ color: '#003087', fontWeight: 'bold', fontSize: '0.9rem', marginBottom: '8px' }}>
-                          Key Takeaways:
-                        </p>
-                        <ul style={{ margin: 0, paddingLeft: '20px', color: '#555', fontSize: '0.9rem', lineHeight: '1.7' }}>
-                          {cs.keyTakeaways.slice(0, 2).map((t: string, i: number) => (
-                            <li key={i}>{t}</li>
-                          ))}
-                        </ul>
-                      </div>
+                    {cs.patientProfile?.gender && (
+                      <span style={{ background: '#F5F5F5', color: '#444', padding: '4px 12px', borderRadius: '50px', fontSize: '0.8rem', fontWeight: '600' }}>
+                        {cs.patientProfile.gender}
+                      </span>
                     )}
-
-                    <div style={{
-                      marginTop: '24px',
-                      color: '#00857C',
-                      fontWeight: 'bold',
-                      fontSize: '0.95rem',
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '6px',
-                    }}>
-                      Read full case study →
-                    </div>
                   </div>
+                  <h2 style={{ color: '#1A1A1A', fontSize: '1.3rem', marginBottom: '16px', lineHeight: '1.4', fontWeight: '700', fontFamily: 'Georgia, serif' }}>
+                    {cs.title}
+                  </h2>
+                  {cs.clinicalChallenge && (
+                    <p style={{ color: '#555', lineHeight: '1.7', fontSize: '0.95rem', marginBottom: '20px' }}>
+                      {cs.clinicalChallenge.length > 150 ? cs.clinicalChallenge.substring(0, 150) + '...' : cs.clinicalChallenge}
+                    </p>
+                  )}
+                  {cs.keyTakeaways?.length > 0 && (
+                    <ul style={{ margin: '0 0 20px', paddingLeft: '20px', color: '#555', fontSize: '0.9rem', lineHeight: '1.7' }}>
+                      {cs.keyTakeaways.slice(0, 2).map((t: string, i: number) => (
+                        <li key={i}>{t}</li>
+                      ))}
+                    </ul>
+                  )}
+                  <span style={{ color: '#0000CC', fontWeight: '600', fontSize: '0.95rem' }}>
+                    Read full case study →
+                  </span>
                 </a>
               ))}
             </div>
@@ -144,63 +99,42 @@ export default async function CaseStudiesPage() {
       </section>
 
       {/* HCP CTA */}
-      <section style={{ padding: '60px 40px', background: 'white' }}>
-        <div style={{ maxWidth: '700px', margin: '0 auto', textAlign: 'center' }}>
-          <h2 style={{ color: '#003087', fontSize: '1.8rem', marginBottom: '16px' }}>
-            Are you a Healthcare Professional?
-          </h2>
-          <p style={{ color: '#555', lineHeight: '1.8', marginBottom: '32px' }}>
-            Access our full library of clinical case studies, real world evidence and trial data in the HCP portal.
-          </p>
-          <a href="/hcp" style={{
-            background: '#003087',
-            color: 'white',
-            padding: '14px 32px',
-            borderRadius: '4px',
-            textDecoration: 'none',
-            fontWeight: 'bold',
-            fontSize: '1rem',
-          }}>
+      <section style={{ background: '#0000CC', padding: '100px 40px', color: 'white' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '40px' }}>
+          <div>
+            <h2 style={{ fontSize: '2.5rem', fontWeight: '800', marginBottom: '16px', fontFamily: 'Georgia, serif' }}>
+              Are you a Healthcare Professional?
+            </h2>
+            <p style={{ opacity: 0.85, fontSize: '1.05rem', lineHeight: '1.7', maxWidth: '500px' }}>
+              Access our full library of clinical case studies, real world evidence and trial data in the HCP portal.
+            </p>
+          </div>
+          <a href="/hcp" style={{ ...theme.buttons.white }}>
             Access HCP Portal
           </a>
         </div>
       </section>
 
+      {/* SCHEMA.ORG JSON-LD */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "MedicalWebPage",
+            "name": "Pandovab Case Studies",
+            "description": "Real world case studies showing how Pandovab (pandovirumab) has helped patients manage hypertension.",
+            "url": "https://pandovab.com/case-studies",
+            "about": { "@type": "Drug", "name": "Pandovab", "alternateName": "pandovirumab" },
+            "audience": { "@type": "Patient" }
+          })
+        }}
+      />
+
       {/* DISCLAIMER */}
-      <section style={{
-        background: '#1A1A2E',
-        color: '#aaa',
-        padding: '20px 40px',
-        textAlign: 'center',
-        fontSize: '0.8rem',
-      }}>
+      <section style={{ background: '#1A1A1A', color: '#888', padding: '20px 40px', textAlign: 'center', fontSize: '0.8rem' }}>
         <p>This website is intended for informational purposes only. Please consult your healthcare provider before starting any medication.</p>
       </section>
-    
-    {/* SCHEMA.ORG JSON-LD */}
-<script
-  type="application/ld+json"
-  dangerouslySetInnerHTML={{
-    __html: JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "MedicalWebPage",
-      "name": "Pandovab Case Studies",
-      "description": "Real world case studies showing how Pandovab (pandovirumab) has helped patients manage hypertension.",
-      "url": "https://pandovab.com/case-studies",
-      "about": {
-        "@type": "Drug",
-        "name": "Pandovab",
-        "alternateName": "pandovirumab"
-      },
-      "audience": {
-        "@type": "Patient"
-      }
-    })
-  }}
-/>
-    
-    
-    
     </main>
   )
 }
