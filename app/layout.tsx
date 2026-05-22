@@ -19,34 +19,27 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           * { box-sizing: border-box; margin: 0; padding: 0; }
           body { font-family: system-ui, -apple-system, Arial, sans-serif; color: #1A1A1A; background: #fff; }
           a { text-decoration: none; }
-
-          /* NAV */
           .nav-wrapper { background: white; border-bottom: 1px solid #E0E0E0; position: sticky; top: 0; z-index: 100; }
           .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 40px; display: flex; align-items: center; justify-content: space-between; height: 70px; }
           .nav-logo-name { color: #0000CC; font-weight: 800; font-size: 1.4rem; letter-spacing: -0.02em; }
           .nav-logo-sub { color: #444; font-size: 0.7rem; letter-spacing: 0.05em; }
           .nav-links { display: flex; gap: 32px; align-items: center; }
-          .nav-links a { color: #1A1A1A; font-size: 0.95rem; font-weight: 500; transition: color 0.2s; }
+          .nav-links a { color: #444444; font-size: 0.88rem; font-weight: 400; transition: color 0.2s; letter-spacing: 0.01em; }
           .nav-links a:hover { color: #0000CC; }
-          .nav-btn { background: #0000CC; color: white !important; padding: 10px 22px; border-radius: 50px; font-weight: bold !important; font-size: 0.85rem !important; }
+          .nav-btn { background: #0000CC; color: white !important; padding: 9px 22px; border-radius: 50px; font-weight: 400 !important; font-size: 0.88rem !important; }
           .nav-btn:hover { background: #0000AA; color: white !important; }
-
-          /* HAMBURGER */
           .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
           .hamburger span { display: block; width: 25px; height: 2px; background: #1A1A1A; }
           .mobile-menu { display: none; flex-direction: column; background: white; border-top: 1px solid #E0E0E0; padding: 16px 40px; box-shadow: 0 4px 8px rgba(0,0,0,0.06); position: sticky; top: 70px; z-index: 99; }
-          .mobile-menu a { color: #1A1A1A; font-size: 0.95rem; padding: 12px 0; border-bottom: 1px solid #f0f0f0; display: block; font-weight: 500; }
+          .mobile-menu a { color: #444444; font-size: 0.88rem; padding: 12px 0; border-bottom: 1px solid #f0f0f0; display: block; font-weight: 400; }
           .mobile-menu a:last-child { border-bottom: none; }
-          .mobile-menu .hcp-link { color: #0000CC; font-weight: bold; }
-
+          .mobile-menu .hcp-link { color: #0000CC; font-weight: 600; }
           @media (max-width: 768px) {
             .nav-links { display: none; }
             .hamburger { display: flex; }
             .mobile-menu.open { display: flex; }
             .nav-inner { padding: 0 20px; }
           }
-
-          /* FOOTER */
           .footer { background: #0000CC; color: white; padding: 60px 40px 30px; }
           .footer-inner { max-width: 1200px; margin: 0 auto; }
           .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 40px; }
@@ -105,7 +98,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                 <div className="footer-brand-sub">pandovirumab</div>
                 <p className="footer-brand-desc">A new standard in blood pressure control.</p>
               </div>
-
               <div>
                 <h4 className="footer-heading">For Patients</h4>
                 <a href="/product" className="footer-link">About Pandovab</a>
@@ -115,7 +107,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                 <a href="/voice-assistant" className="footer-link">Voice Assistant</a>
                 <a href="/contact" className="footer-link">Contact</a>
               </div>
-
               <div>
                 <h4 className="footer-heading">For Healthcare Professionals</h4>
                 <a href="/hcp/clinical-trials" className="footer-link">Clinical Trials</a>
@@ -125,7 +116,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                 <a href="/hcp/prescribing-info" className="footer-link">Prescribing Information</a>
                 <a href="/hcp/real-world-evidence" className="footer-link">Real World Evidence</a>
               </div>
-
               <div>
                 <h4 className="footer-heading">Legal</h4>
                 <a href="/privacy" className="footer-link">Privacy Policy</a>
@@ -133,7 +123,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                 <a href="/cookies" className="footer-link">Cookie Policy</a>
               </div>
             </div>
-
             <div className="footer-bottom">
               <p>© 2026 Pandovab. All rights reserved.</p>
               <p>This site is intended for informational purposes only. Always consult your healthcare provider.</p>
