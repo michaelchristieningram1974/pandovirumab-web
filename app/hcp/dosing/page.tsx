@@ -42,135 +42,82 @@ export default async function DosingPage() {
   return (
     <main>
       {/* HCP BANNER */}
-      <div style={{
-        background: '#1A1A2E',
-        color: '#00857C',
-        padding: '8px 40px',
-        fontSize: '0.8rem',
-        fontWeight: 'bold',
-        letterSpacing: '0.05em',
-        textAlign: 'center',
-      }}>
+      <div style={{ background: '#1A1A1A', color: '#888', padding: '8px 40px', fontSize: '0.8rem', textAlign: 'center', letterSpacing: '0.05em' }}>
         FOR HEALTHCARE PROFESSIONALS ONLY
       </div>
 
       {/* HERO */}
-      <section style={{
-        background: 'linear-gradient(135deg, #1A1A2E 0%, #003087 100%)',
-        color: 'white',
-        padding: '60px 40px',
-        textAlign: 'center',
-      }}>
-        <h1 style={{ fontSize: '2.5rem', fontWeight: 'bold', marginBottom: '16px' }}>
-          Dosing Guide
-        </h1>
-        <p style={{ fontSize: '1.1rem', opacity: 0.9, maxWidth: '650px', margin: '0 auto' }}>
-          Dosing and administration information for Pandovab (pandovirumab)
-        </p>
+      <section style={{ background: '#F5F5F5', padding: '100px 40px' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+          <p style={{ color: '#0000CC', fontSize: '0.85rem', fontWeight: '600', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '16px' }}>
+            Dosing & Administration
+          </p>
+          <h1 style={{ fontSize: '3rem', fontWeight: '800', lineHeight: '1.15', marginBottom: '24px', color: '#1A1A1A', fontFamily: 'Georgia, serif', maxWidth: '700px' }}>
+            Dosing Guide
+          </h1>
+          <p style={{ fontSize: '1.2rem', color: '#444', lineHeight: '1.7', maxWidth: '600px' }}>
+            Dosing and administration information for Pandovab (pandovirumab)
+          </p>
+        </div>
       </section>
 
-      {/* STANDARD DOSING */}
-      <section style={{ padding: '80px 40px', background: '#F5F7FA' }}>
-        <div style={{ maxWidth: '900px', margin: '0 auto' }}>
-
-          {/* QUICK REFERENCE */}
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-            gap: '20px',
-            marginBottom: '50px',
-          }}>
+      {/* QUICK REFERENCE */}
+      <section style={{ background: '#0000CC', padding: '60px 40px', color: 'white' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '40px' }}>
             {dosing?.doseAmount && (
-              <div style={{
-                background: '#003087',
-                color: 'white',
-                padding: '30px',
-                borderRadius: '8px',
-                textAlign: 'center',
-              }}>
-                <p style={{ fontSize: '0.8rem', opacity: 0.8, margin: '0 0 8px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Dose</p>
-                <p style={{ fontSize: '2rem', fontWeight: 'bold', margin: 0 }}>{dosing.doseAmount}</p>
+              <div>
+                <p style={{ fontSize: '0.8rem', opacity: 0.7, margin: '0 0 8px', textTransform: 'uppercase', letterSpacing: '0.08em' }}>Dose</p>
+                <p style={{ fontSize: '2.5rem', fontWeight: '800', margin: 0, fontFamily: 'Georgia, serif' }}>{dosing.doseAmount}</p>
               </div>
             )}
             {dosing?.frequency && (
-              <div style={{
-                background: '#00857C',
-                color: 'white',
-                padding: '30px',
-                borderRadius: '8px',
-                textAlign: 'center',
-              }}>
-                <p style={{ fontSize: '0.8rem', opacity: 0.8, margin: '0 0 8px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Frequency</p>
-                <p style={{ fontSize: '2rem', fontWeight: 'bold', margin: 0 }}>{dosing.frequency}</p>
+              <div>
+                <p style={{ fontSize: '0.8rem', opacity: 0.7, margin: '0 0 8px', textTransform: 'uppercase', letterSpacing: '0.08em' }}>Frequency</p>
+                <p style={{ fontSize: '2.5rem', fontWeight: '800', margin: 0, fontFamily: 'Georgia, serif' }}>{dosing.frequency}</p>
               </div>
             )}
             {dosing?.route && (
-              <div style={{
-                background: '#003087',
-                color: 'white',
-                padding: '30px',
-                borderRadius: '8px',
-                textAlign: 'center',
-              }}>
-                <p style={{ fontSize: '0.8rem', opacity: 0.8, margin: '0 0 8px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Route</p>
-                <p style={{ fontSize: '2rem', fontWeight: 'bold', margin: 0, textTransform: 'capitalize' }}>{dosing.route}</p>
+              <div>
+                <p style={{ fontSize: '0.8rem', opacity: 0.7, margin: '0 0 8px', textTransform: 'uppercase', letterSpacing: '0.08em' }}>Route</p>
+                <p style={{ fontSize: '2.5rem', fontWeight: '800', margin: 0, fontFamily: 'Georgia, serif', textTransform: 'capitalize' }}>{dosing.route}</p>
               </div>
             )}
           </div>
+        </div>
+      </section>
 
-          {/* STANDARD DOSING */}
+      {/* DOSING CONTENT */}
+      <section style={{ background: '#FFFFFF', padding: '100px 40px' }}>
+        <div style={{ maxWidth: '900px', margin: '0 auto' }}>
+
           {dosing?.standardDosing?.length > 0 && (
-            <div style={{ marginBottom: '40px' }}>
-              <h2 style={{ color: '#003087', fontSize: '1.5rem', marginBottom: '20px' }}>
+            <div style={{ marginBottom: '60px', borderTop: '3px solid #0000CC', paddingTop: '40px' }}>
+              <h2 style={{ color: '#1A1A1A', fontSize: '1.8rem', marginBottom: '24px', fontWeight: '800', fontFamily: 'Georgia, serif' }}>
                 Standard Dosing Instructions
               </h2>
-              <div style={{
-                background: 'white',
-                padding: '30px',
-                borderRadius: '8px',
-                boxShadow: '0 2px 12px rgba(0,0,0,0.06)',
-                borderLeft: '4px solid #003087',
-                color: '#555',
-                lineHeight: '1.8',
-              }}>
+              <div style={{ color: '#555', lineHeight: '1.9', fontSize: '0.95rem' }}>
                 {dosing.standardDosing.map((block: any, i: number) => (
-                  <p key={i}>{block.children?.map((child: any) => child.text).join('')}</p>
+                  <p key={i} style={{ marginBottom: '16px' }}>{block.children?.map((child: any) => child.text).join('')}</p>
                 ))}
               </div>
             </div>
           )}
 
-          {/* SPECIAL POPULATIONS */}
           {dosing?.specialPopulations?.length > 0 && (
-            <div style={{ marginBottom: '40px' }}>
-              <h2 style={{ color: '#003087', fontSize: '1.5rem', marginBottom: '20px' }}>
+            <div style={{ marginBottom: '60px', borderTop: '3px solid #0000CC', paddingTop: '40px' }}>
+              <h2 style={{ color: '#1A1A1A', fontSize: '1.8rem', marginBottom: '32px', fontWeight: '800', fontFamily: 'Georgia, serif' }}>
                 Special Populations
               </h2>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
                 {dosing.specialPopulations.map((pop: any, i: number) => (
-                  <div key={i} style={{
-                    background: 'white',
-                    padding: '24px',
-                    borderRadius: '8px',
-                    boxShadow: '0 2px 12px rgba(0,0,0,0.06)',
-                    borderLeft: '4px solid #00857C',
-                  }}>
-                    <h3 style={{ color: '#003087', marginBottom: '12px', fontSize: '1.1rem' }}>
+                  <div key={i} style={{ background: '#F5F5F5', padding: '28px', borderRadius: '8px', borderLeft: '4px solid #0000CC' }}>
+                    <h3 style={{ color: '#1A1A1A', marginBottom: '12px', fontSize: '1.1rem', fontWeight: '700' }}>
                       {populationLabels[pop.population] ?? pop.population}
                     </h3>
-                    <p style={{ color: '#555', lineHeight: '1.7', margin: '0 0 8px' }}>
-                      {pop.instructions}
-                    </p>
+                    <p style={{ color: '#555', lineHeight: '1.7', margin: '0 0 8px', fontSize: '0.95rem' }}>{pop.instructions}</p>
                     {pop.warning && (
-                      <div style={{
-                        background: '#fff3cd',
-                        border: '1px solid #ffc107',
-                        borderRadius: '4px',
-                        padding: '10px 14px',
-                        marginTop: '8px',
-                        fontSize: '0.9rem',
-                        color: '#856404',
-                      }}>
+                      <div style={{ background: '#fff3cd', border: '1px solid #ffc107', borderRadius: '4px', padding: '10px 14px', marginTop: '8px', fontSize: '0.9rem', color: '#856404' }}>
                         ⚠️ {pop.warning}
                       </div>
                     )}
@@ -180,96 +127,52 @@ export default async function DosingPage() {
             </div>
           )}
 
-          {/* MISSED DOSE */}
           {dosing?.missedDose && (
-            <div style={{ marginBottom: '40px' }}>
-              <h2 style={{ color: '#003087', fontSize: '1.5rem', marginBottom: '20px' }}>
+            <div style={{ marginBottom: '60px', borderTop: '3px solid #0000CC', paddingTop: '40px' }}>
+              <h2 style={{ color: '#1A1A1A', fontSize: '1.8rem', marginBottom: '24px', fontWeight: '800', fontFamily: 'Georgia, serif' }}>
                 Missed Dose
               </h2>
-              <div style={{
-                background: 'white',
-                padding: '24px',
-                borderRadius: '8px',
-                boxShadow: '0 2px 12px rgba(0,0,0,0.06)',
-                borderLeft: '4px solid #00857C',
-                color: '#555',
-                lineHeight: '1.7',
-              }}>
-                {dosing.missedDose}
-              </div>
+              <p style={{ color: '#555', lineHeight: '1.8', fontSize: '0.95rem' }}>{dosing.missedDose}</p>
             </div>
           )}
 
-          {/* OVERDOSE */}
           {dosing?.overdose && (
-            <div style={{ marginBottom: '40px' }}>
-              <h2 style={{ color: '#003087', fontSize: '1.5rem', marginBottom: '20px' }}>
+            <div style={{ marginBottom: '60px', borderTop: '3px solid #c0392b', paddingTop: '40px' }}>
+              <h2 style={{ color: '#c0392b', fontSize: '1.8rem', marginBottom: '24px', fontWeight: '800', fontFamily: 'Georgia, serif' }}>
                 Overdose
               </h2>
-              <div style={{
-                background: '#fff3f3',
-                border: '1px solid #ffcccc',
-                padding: '24px',
-                borderRadius: '8px',
-                borderLeft: '4px solid #c0392b',
-                color: '#555',
-                lineHeight: '1.7',
-              }}>
+              <div style={{ background: '#fff3f3', border: '1px solid #ffcccc', padding: '24px', borderRadius: '8px', color: '#555', lineHeight: '1.8', fontSize: '0.95rem' }}>
                 ⚠️ {dosing.overdose}
               </div>
             </div>
           )}
 
-          {/* STORAGE */}
           {dosing?.storage && (
-            <div style={{ marginBottom: '40px' }}>
-              <h2 style={{ color: '#003087', fontSize: '1.5rem', marginBottom: '20px' }}>
+            <div style={{ borderTop: '3px solid #0000CC', paddingTop: '40px' }}>
+              <h2 style={{ color: '#1A1A1A', fontSize: '1.8rem', marginBottom: '24px', fontWeight: '800', fontFamily: 'Georgia, serif' }}>
                 Storage
               </h2>
-              <div style={{
-                background: 'white',
-                padding: '24px',
-                borderRadius: '8px',
-                boxShadow: '0 2px 12px rgba(0,0,0,0.06)',
-                borderLeft: '4px solid #003087',
-                color: '#555',
-                lineHeight: '1.7',
-              }}>
-                {dosing.storage}
-              </div>
+              <p style={{ color: '#555', lineHeight: '1.8', fontSize: '0.95rem' }}>{dosing.storage}</p>
             </div>
           )}
 
           {!dosing && (
-            <p style={{ textAlign: 'center', color: '#555' }}>
-              Dosing information coming soon.
-            </p>
+            <p style={{ color: '#555' }}>Dosing information coming soon.</p>
           )}
 
         </div>
       </section>
 
       {/* BACK TO HCP */}
-      <section style={{ padding: '40px', textAlign: 'center', background: 'white' }}>
-        <a href="/hcp/home" style={{
-          color: '#003087',
-          textDecoration: 'none',
-          fontWeight: 'bold',
-          fontSize: '0.95rem',
-        }}>
+      <section style={{ padding: '40px', textAlign: 'center', background: '#F5F5F5' }}>
+        <a href="/hcp/home" style={{ color: '#0000CC', fontWeight: '600', fontSize: '0.95rem' }}>
           ← Back to HCP Portal
         </a>
       </section>
 
       {/* DISCLAIMER */}
-      <section style={{
-        background: '#1A1A2E',
-        color: '#aaa',
-        padding: '20px 40px',
-        textAlign: 'center',
-        fontSize: '0.8rem',
-      }}>
-        <p>This information is intended for healthcare professionals only. For patient information please visit the <a href="/" style={{ color: '#00857C' }}>main site</a>.</p>
+      <section style={{ background: '#1A1A1A', color: '#888', padding: '20px 40px', textAlign: 'center', fontSize: '0.8rem' }}>
+        <p>This information is intended for healthcare professionals only. For patient information please visit the <a href="/" style={{ color: '#888', textDecoration: 'underline' }}>main site</a>.</p>
       </section>
     </main>
   )
