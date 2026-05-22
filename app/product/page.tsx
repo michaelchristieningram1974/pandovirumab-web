@@ -1,11 +1,12 @@
 import type { Metadata } from 'next'
 import { client } from '../../sanity.client'
+import { theme } from '../../theme'
 
 export const revalidate = 60
 
 export const metadata: Metadata = {
   title: 'About Pandovab (pandovirumab)',
-  description: 'Learn about Pandovab (pandovirumab), a prescription medication indicated for the treatment of hypertension in adults. Discover its features, benefits and indication.',
+  description: 'Learn about Pandovab (pandovirumab), a prescription medication indicated for the treatment of hypertension in adults.',
   keywords: 'Pandovab, pandovirumab, hypertension medication, blood pressure treatment',
   openGraph: {
     title: 'About Pandovab (pandovirumab)',
@@ -33,61 +34,52 @@ export default async function ProductPage() {
   return (
     <main>
       {/* HERO */}
-      <section style={{
-        background: 'linear-gradient(135deg, #003087 0%, #00857C 100%)',
-        color: 'white',
-        padding: '80px 40px',
-        textAlign: 'center',
-      }}>
-        <p style={{ fontSize: '0.9rem', letterSpacing: '0.1em', textTransform: 'uppercase', opacity: 0.8, marginBottom: '16px' }}>
-          pandovirumab
-        </p>
-        <h1 style={{ fontSize: '3rem', fontWeight: 'bold', marginBottom: '20px' }}>
-          {product?.name ?? 'Pandovab'}
-        </h1>
-        <p style={{ fontSize: '1.3rem', opacity: 0.9, maxWidth: '700px', margin: '0 auto 24px' }}>
-          {product?.tagline ?? 'A new standard in blood pressure control'}
-        </p>
-        <div style={{
-          background: 'rgba(255,255,255,0.15)',
-          borderRadius: '8px',
-          padding: '20px 40px',
-          maxWidth: '800px',
-          margin: '0 auto',
-          fontSize: '0.95rem',
-          lineHeight: '1.7',
-          opacity: 0.95,
-        }}>
-          {product?.indication ?? ''}
+      <section style={{ background: '#F5F5F5', padding: '100px 40px' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+          <p style={{ color: '#0000CC', fontSize: '0.85rem', fontWeight: '600', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '16px' }}>
+            pandovirumab
+          </p>
+          <h1 style={{ fontSize: '3rem', fontWeight: '800', lineHeight: '1.15', marginBottom: '24px', color: '#1A1A1A', fontFamily: 'Georgia, serif', maxWidth: '700px' }}>
+            {product?.name ?? 'Pandovab'}
+          </h1>
+          <p style={{ fontSize: '1.2rem', color: '#444', lineHeight: '1.7', marginBottom: '16px', maxWidth: '700px' }}>
+            {product?.tagline ?? 'A new standard in blood pressure control'}
+          </p>
+          <div style={{
+            background: 'white',
+            borderLeft: '4px solid #0000CC',
+            padding: '20px 24px',
+            borderRadius: '4px',
+            maxWidth: '700px',
+            marginBottom: '40px',
+          }}>
+            <p style={{ color: '#444', lineHeight: '1.8', margin: 0, fontSize: '0.95rem' }}>
+              {product?.indication ?? ''}
+            </p>
+          </div>
+          <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
+            <a href="/faq" style={{ ...theme.buttons.primary }}>Read FAQs</a>
+            <a href="/hcp" style={{ ...theme.buttons.outline }}>Healthcare Professionals</a>
+          </div>
         </div>
       </section>
 
       {/* KEY FEATURES */}
-      <section style={{ padding: '80px 40px', background: '#F5F7FA' }}>
+      <section style={{ background: '#FFFFFF', padding: '100px 40px' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-          <h2 style={{ textAlign: 'center', color: '#003087', fontSize: '2rem', marginBottom: '12px' }}>
+          <p style={{ color: '#0000CC', fontSize: '0.85rem', fontWeight: '600', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '12px' }}>
             Key Features
-          </h2>
-          <p style={{ textAlign: 'center', color: '#555', marginBottom: '50px', fontSize: '1.05rem' }}>
-            What makes Pandovab different
           </p>
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-            gap: '30px',
-          }}>
+          <h2 style={{ fontSize: '2.5rem', fontWeight: '800', color: '#1A1A1A', marginBottom: '60px', fontFamily: 'Georgia, serif', maxWidth: '600px' }}>
+            What makes Pandovab different
+          </h2>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '40px' }}>
             {product?.keyFeatures?.map((feature: any, index: number) => (
-              <div key={index} style={{
-                background: 'white',
-                padding: '40px 30px',
-                borderRadius: '8px',
-                borderTop: '4px solid #00857C',
-                boxShadow: '0 2px 12px rgba(0,0,0,0.06)',
-              }}>
-                <h3 style={{ color: '#003087', marginBottom: '12px', fontSize: '1.2rem' }}>
+              <div key={index} style={{ borderTop: '3px solid #0000CC', paddingTop: '24px' }}>
+                <h3 style={{ color: '#1A1A1A', marginBottom: '12px', fontSize: '1.2rem', fontWeight: '700', fontFamily: 'Georgia, serif' }}>
                   {feature.title}
                 </h3>
-                <p style={{ color: '#555', lineHeight: '1.7', margin: 0 }}>
+                <p style={{ color: '#555', lineHeight: '1.7', fontSize: '0.95rem' }}>
                   {feature.description}
                 </p>
               </div>
@@ -97,30 +89,21 @@ export default async function ProductPage() {
       </section>
 
       {/* BENEFITS */}
-      <section style={{ padding: '80px 40px', background: 'white' }}>
+      <section style={{ background: '#F5F5F5', padding: '100px 40px' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-          <h2 style={{ textAlign: 'center', color: '#003087', fontSize: '2rem', marginBottom: '12px' }}>
+          <p style={{ color: '#0000CC', fontSize: '0.85rem', fontWeight: '600', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '12px' }}>
             Benefits
-          </h2>
-          <p style={{ textAlign: 'center', color: '#555', marginBottom: '50px', fontSize: '1.05rem' }}>
-            Why patients and doctors choose Pandovab
           </p>
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-            gap: '24px',
-          }}>
+          <h2 style={{ fontSize: '2.5rem', fontWeight: '800', color: '#1A1A1A', marginBottom: '60px', fontFamily: 'Georgia, serif', maxWidth: '600px' }}>
+            Why patients and doctors choose Pandovab
+          </h2>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '30px' }}>
             {product?.benefits?.map((benefit: any, index: number) => (
-              <div key={index} style={{
-                background: '#E6F4F3',
-                padding: '30px',
-                borderRadius: '8px',
-                borderLeft: '4px solid #00857C',
-              }}>
-                <h3 style={{ color: '#003087', marginBottom: '10px', fontSize: '1.1rem' }}>
+              <div key={index} style={{ background: 'white', padding: '32px', borderRadius: '8px', boxShadow: '0 1px 4px rgba(0,0,0,0.06)' }}>
+                <h3 style={{ color: '#1A1A1A', marginBottom: '10px', fontSize: '1.1rem', fontWeight: '700' }}>
                   {benefit.title}
                 </h3>
-                <p style={{ color: '#444', lineHeight: '1.7', margin: 0 }}>
+                <p style={{ color: '#555', lineHeight: '1.7', fontSize: '0.95rem', margin: 0 }}>
                   {benefit.description}
                 </p>
               </div>
@@ -130,118 +113,69 @@ export default async function ProductPage() {
       </section>
 
       {/* MECHANISM OF ACTION */}
-      <section style={{ padding: '80px 40px', background: '#F5F7FA' }}>
+      <section style={{ background: '#FFFFFF', padding: '100px 40px' }}>
         <div style={{ maxWidth: '800px', margin: '0 auto' }}>
-          <h2 style={{ textAlign: 'center', color: '#003087', fontSize: '2rem', marginBottom: '12px' }}>
+          <p style={{ color: '#0000CC', fontSize: '0.85rem', fontWeight: '600', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '12px' }}>
+            Science
+          </p>
+          <h2 style={{ fontSize: '2.5rem', fontWeight: '800', color: '#1A1A1A', marginBottom: '40px', fontFamily: 'Georgia, serif' }}>
             Mechanism of Action
           </h2>
-          <p style={{ textAlign: 'center', color: '#555', marginBottom: '40px', fontSize: '1.05rem' }}>
-            How Pandovab works in the body
-          </p>
-          <div style={{
-            background: 'white',
-            padding: '40px',
-            borderRadius: '8px',
-            boxShadow: '0 2px 12px rgba(0,0,0,0.06)',
-            color: '#444',
-            lineHeight: '1.8',
-            fontSize: '1rem',
-          }}>
+          <div style={{ borderTop: '3px solid #0000CC', paddingTop: '32px', color: '#444', lineHeight: '1.9', fontSize: '1rem' }}>
             {product?.mechanismOfAction?.map((block: any, i: number) => (
-              <p key={i}>{block.children?.map((child: any) => child.text).join('')}</p>
+              <p key={i} style={{ marginBottom: '16px' }}>
+                {block.children?.map((child: any) => child.text).join('')}
+              </p>
             ))}
           </div>
         </div>
       </section>
 
       {/* CTA */}
-      <section style={{
-        background: '#003087',
-        color: 'white',
-        padding: '60px 40px',
-        textAlign: 'center',
-      }}>
-        <h2 style={{ fontSize: '2rem', marginBottom: '16px' }}>
-          Ready to learn more?
-        </h2>
-        <p style={{ opacity: 0.85, marginBottom: '32px', fontSize: '1.05rem' }}>
-          Speak to your doctor about whether Pandovab is right for you.
-        </p>
-        <div style={{ display: 'flex', gap: '20px', justifyContent: 'center', flexWrap: 'wrap' }}>
-          <a href="/faq" style={{
-            background: 'white',
-            color: '#003087',
-            padding: '14px 32px',
-            borderRadius: '4px',
-            textDecoration: 'none',
-            fontWeight: 'bold',
-            fontSize: '1rem',
-          }}>
-            Read FAQs
-          </a>
-          <a href="/hcp" style={{
-            background: 'transparent',
-            color: 'white',
-            padding: '14px 32px',
-            borderRadius: '4px',
-            textDecoration: 'none',
-            fontWeight: 'bold',
-            fontSize: '1rem',
-            border: '2px solid white',
-          }}>
-            Healthcare Professionals
-          </a>
+      <section style={{ background: '#0000CC', padding: '100px 40px', color: 'white' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '40px' }}>
+          <div>
+            <h2 style={{ fontSize: '2.5rem', fontWeight: '800', marginBottom: '16px', fontFamily: 'Georgia, serif' }}>
+              Ready to learn more?
+            </h2>
+            <p style={{ opacity: 0.85, fontSize: '1.05rem', lineHeight: '1.7', maxWidth: '500px' }}>
+              Speak to your doctor about whether Pandovab is right for you.
+            </p>
+          </div>
+          <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
+            <a href="/faq" style={{ ...theme.buttons.white }}>Read FAQs</a>
+            <a href="/hcp" style={{ ...theme.buttons.outlineWhite }}>HCP Portal</a>
+          </div>
         </div>
       </section>
 
+      {/* SCHEMA.ORG JSON-LD */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "MedicalWebPage",
+            "name": "About Pandovab (pandovirumab)",
+            "description": "Learn about Pandovab (pandovirumab), a prescription medication for the treatment of hypertension in adults.",
+            "url": "https://pandovab.com/product",
+            "about": {
+              "@type": "Drug",
+              "name": "Pandovab",
+              "alternateName": "pandovirumab",
+              "indication": { "@type": "MedicalIndication", "name": "Hypertension" },
+              "administrationRoute": "Oral",
+              "drugClass": "Antihypertensive"
+            },
+            "audience": { "@type": "Patient" }
+          })
+        }}
+      />
+
       {/* DISCLAIMER */}
-      <section style={{
-        background: '#1A1A2E',
-        color: '#aaa',
-        padding: '20px 40px',
-        textAlign: 'center',
-        fontSize: '0.8rem',
-      }}>
+      <section style={{ background: '#1A1A1A', color: '#888', padding: '20px 40px', textAlign: 'center', fontSize: '0.8rem' }}>
         <p>This website is intended for informational purposes only. Please consult your healthcare provider before starting any medication.</p>
       </section>
-    
-    {/* SCHEMA.ORG JSON-LD */}
-<script
-  type="application/ld+json"
-  dangerouslySetInnerHTML={{
-    __html: JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "MedicalWebPage",
-      "name": "About Pandovab (pandovirumab)",
-      "description": "Learn about Pandovab (pandovirumab), a prescription medication for the treatment of hypertension in adults.",
-      "url": "https://pandovab.com/product",
-      "about": {
-        "@type": "Drug",
-        "name": "Pandovab",
-        "alternateName": "pandovirumab",
-        "indication": {
-          "@type": "MedicalIndication",
-          "name": "Hypertension"
-        },
-        "administrationRoute": "Oral",
-        "drugClass": "Antihypertensive"
-      },
-      "audience": {
-        "@type": "Patient"
-      },
-      "medicalAudience": "Patient"
-    })
-  }}
-/>
-
-
-
-
-
-    
-    
-    
-    
     </main>
   )
 }
