@@ -99,9 +99,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                 <p className="footer-brand-desc">A new standard in blood pressure control.</p>
               </div>
               <div>
-                <h4 className="footer-heading">For Patients</h4>
-                <a href="/product" className="footer-link">About pandozab</a>
-                <a href="/how-it-works" className="footer-link">How It Works</a>
+                <h4 className="footer-heading">For patients</h4>
+                <a href="/product" className="footer-link">About Pandozab</a>
+                <a href="/how-it-works" className="footer-link">How it works</a>
                 <a href="/side-effects" className="footer-link">Side Effects</a>
                 <a href="/faq" className="footer-link">FAQ</a>
                 <a href="/voice-assistant" className="footer-link">Voice Assistant</a>
