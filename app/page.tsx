@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { client } from '../sanity.client'
 import { theme } from '../theme'
 
-export const revalidate = 60
+export const revalidate = 0
 
 export const metadata: Metadata = {
   title: 'pandozab (pandovirumab) | Blood Pressure Treatment',
