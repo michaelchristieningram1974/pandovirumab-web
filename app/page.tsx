@@ -185,7 +185,7 @@ export default async function Home() {
             "name": "Pandozab",
             "alternateName": "pandovirumab",
             "description": "Pandozab (pandovirumab) is a prescription medication indicated for the treatment of hypertension in adults aged 18 and above.",
-            "url": "https://pandovab.com",
+            "url": "https://pandozab.com",
             "medicineSystem": "https://schema.org/WesternConventional",
             "relevantSpecialty": "https://schema.org/Cardiovascular",
             "indication": {
