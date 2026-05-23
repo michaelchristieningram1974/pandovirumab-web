@@ -5,26 +5,24 @@ import { theme } from '../theme'
 export const revalidate = 0
 
 export const metadata: Metadata = {
-  title: 'pandozab (pandovirumab) | Blood Pressure Treatment',
-  description: 'pandozab (pandovirumab) is a prescription medication indicated for the treatment of hypertension in adults. Learn about dosing, side effects, and clinical data.',
-  keywords: 'pandozab, pandovirumab, hypertension, blood pressure, treatment, medication',
+  title: 'Pandozab (pandovirumab) | Blood Pressure Treatment',
+  description: 'Pandozab (pandovirumab) is a prescription medication indicated for the treatment of hypertension in adults. Learn about dosing, side effects, and clinical data.',
+  keywords: 'Pandozab, pandovirumab, hypertension, blood pressure, treatment, medication',
   openGraph: {
-    title: 'pandozab (pandovirumab) | Blood Pressure Treatment',
+    title: 'Pandozab (pandovirumab) | Blood Pressure Treatment',
     description: 'A new standard in blood pressure control.',
     type: 'website',
   },
 }
 
 async function getProduct() {
-  const product = await client.fetch(`*[_type == "product"][0]{
+  return client.fetch(`*[_type == "product"][0]{
     name,
     tagline,
     indication,
     keyFeatures,
     benefits
   }`)
-  console.log('Product from Sanity:', product)
-  return product
 }
 
 export default async function Home() {
@@ -40,7 +38,7 @@ export default async function Home() {
               pandovirumab
             </p>
             <h1 style={{ fontSize: '3rem', fontWeight: '800', lineHeight: '1.15', marginBottom: '24px', color: '#1A1A1A', fontFamily: 'Georgia, serif' }}>
-              {product?.name ?? 'pandozab'}
+              {product?.name ?? 'Pandozab'}
             </h1>
             <p style={{ fontSize: '1.2rem', color: '#444', lineHeight: '1.7', marginBottom: '16px' }}>
               {product?.tagline ?? 'A new standard in blood pressure control'}
@@ -87,16 +85,12 @@ export default async function Home() {
       <section style={{ background: '#FFFFFF', padding: '100px 40px' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
           <p style={{ color: '#0000CC', fontSize: '0.85rem', fontWeight: '600', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '12px' }}>
-            Why pandozab
+            Why Pandozab
           </p>
           <h2 style={{ fontSize: '2.5rem', fontWeight: '800', color: '#1A1A1A', marginBottom: '60px', fontFamily: 'Georgia, serif', maxWidth: '600px' }}>
             A breakthrough in hypertension treatment
           </h2>
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-            gap: '40px',
-          }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '40px' }}>
             {product?.keyFeatures?.map((feature: any, index: number) => (
               <div key={index} style={{ borderTop: '3px solid #0000CC', paddingTop: '24px' }}>
                 <h3 style={{ color: '#1A1A1A', marginBottom: '12px', fontSize: '1.2rem', fontWeight: '700', fontFamily: 'Georgia, serif' }}>
@@ -118,20 +112,11 @@ export default async function Home() {
             Benefits
           </p>
           <h2 style={{ fontSize: '2.5rem', fontWeight: '800', color: '#1A1A1A', marginBottom: '60px', fontFamily: 'Georgia, serif', maxWidth: '600px' }}>
-            Why patients and doctors choose pandozab
+            Why patients and doctors choose Pandozab
           </h2>
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-            gap: '30px',
-          }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '30px' }}>
             {product?.benefits?.map((benefit: any, index: number) => (
-              <div key={index} style={{
-                background: 'white',
-                padding: '32px',
-                borderRadius: '8px',
-                boxShadow: '0 1px 4px rgba(0,0,0,0.06)',
-              }}>
+              <div key={index} style={{ background: 'white', padding: '32px', borderRadius: '8px', boxShadow: '0 1px 4px rgba(0,0,0,0.06)' }}>
                 <h3 style={{ color: '#1A1A1A', marginBottom: '10px', fontSize: '1.1rem', fontWeight: '700' }}>
                   {benefit.title}
                 </h3>
@@ -149,10 +134,10 @@ export default async function Home() {
         <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '80px', alignItems: 'center' }}>
           <div>
             <h2 style={{ fontSize: '2.5rem', fontWeight: '800', marginBottom: '20px', fontFamily: 'Georgia, serif', lineHeight: '1.2' }}>
-              Ready to learn more about pandozab?
+              Ready to learn more about Pandozab?
             </h2>
             <p style={{ opacity: 0.85, lineHeight: '1.8', fontSize: '1.05rem', marginBottom: '40px' }}>
-              Speak to your doctor about whether pandozab is right for you, or access our full clinical data in the HCP portal.
+              Speak to your doctor about whether Pandozab is right for you, or access our full clinical data in the HCP portal.
             </p>
             <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
               <a href="/faq" style={{ ...theme.buttons.white }}>
@@ -165,7 +150,7 @@ export default async function Home() {
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
             {[
-              { label: 'About pandozab', href: '/product' },
+              { label: 'About Pandozab', href: '/product' },
               { label: 'How It Works', href: '/how-it-works' },
               { label: 'Side Effects', href: '/side-effects' },
               { label: 'Case Studies', href: '/case-studies' },
@@ -197,10 +182,10 @@ export default async function Home() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Drug",
-            "name": "pandozab",
+            "name": "Pandozab",
             "alternateName": "pandovirumab",
-            "description": "pandozab (pandovirumab) is a prescription medication indicated for the treatment of hypertension in adults aged 18 and above.",
-            "url": "https://pandozab.com",
+            "description": "Pandozab (pandovirumab) is a prescription medication indicated for the treatment of hypertension in adults aged 18 and above.",
+            "url": "https://pandovab.com",
             "medicineSystem": "https://schema.org/WesternConventional",
             "relevantSpecialty": "https://schema.org/Cardiovascular",
             "indication": {
@@ -212,7 +197,7 @@ export default async function Home() {
             "drugClass": "Antihypertensive",
             "manufacturer": {
               "@type": "Organization",
-              "name": "pandozab Pharmaceuticals"
+              "name": "Pandozab Pharmaceuticals"
             }
           })
         }}
