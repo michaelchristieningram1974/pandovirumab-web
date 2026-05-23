@@ -2,11 +2,11 @@ import type { Metadata } from 'next'
 import { theme } from '../../theme'
 
 export const metadata: Metadata = {
-  title: 'Healthcare Professional Portal | Pandovab (pandovirumab)',
-  description: 'Access clinical information about Pandovab (pandovirumab) including clinical trial data, dosing guidance, drug interactions and prescribing information.',
-  keywords: 'Pandovab HCP, pandovirumab prescribing information, clinical trials, dosing guide',
+  title: 'Healthcare Professional Portal | pandozab (pandovirumab)',
+  description: 'Access clinical information about pandozab (pandovirumab) including clinical trial data, dosing guidance, drug interactions and prescribing information.',
+  keywords: 'pandozab HCP, pandovirumab prescribing information, clinical trials, dosing guide',
   openGraph: {
-    title: 'Healthcare Professional Portal | Pandovab (pandovirumab)',
+    title: 'Healthcare Professional Portal | pandozab (pandovirumab)',
     description: 'Clinical information for healthcare professionals.',
     type: 'website',
   },
@@ -51,7 +51,7 @@ export default function HCPGatePage() {
             <li>You are a qualified healthcare professional</li>
             <li>You are accessing this information in your professional capacity</li>
             <li>You understand this information is not intended for patients or the general public</li>
-            <li>You are located in a country where Pandovab is approved for use</li>
+            <li>You are located in a country where pandozab is approved for use</li>
           </ul>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', alignItems: 'flex-start' }}>
             <a href="/hcp/home" style={{ ...theme.buttons.primary }}>

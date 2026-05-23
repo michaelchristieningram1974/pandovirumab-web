@@ -5,11 +5,11 @@ import { theme } from '../../../theme'
 export const revalidate = 60
 
 export const metadata: Metadata = {
-  title: 'HCP Home | Pandovab (pandovirumab)',
-  description: 'Clinical information for healthcare professionals about Pandovab (pandovirumab) including trial data, dosing and prescribing information.',
-  keywords: 'Pandovab HCP, pandovirumab clinical data, prescribing information',
+  title: 'HCP Home | pandozab (pandovirumab)',
+  description: 'Clinical information for healthcare professionals about pandozab (pandovirumab) including trial data, dosing and prescribing information.',
+  keywords: 'pandozab HCP, pandovirumab clinical data, prescribing information',
   openGraph: {
-    title: 'HCP Home | Pandovab (pandovirumab)',
+    title: 'HCP Home | pandozab (pandovirumab)',
     description: 'Clinical information for healthcare professionals.',
     type: 'website',
   },
@@ -36,10 +36,10 @@ export default async function HCPHomePage() {
             Clinical Information
           </p>
           <h1 style={{ fontSize: '3rem', fontWeight: '800', lineHeight: '1.15', marginBottom: '24px', color: '#1A1A1A', fontFamily: 'Georgia, serif', maxWidth: '700px' }}>
-            Pandovab Clinical Portal
+            pandozab Clinical Portal
           </h1>
           <p style={{ fontSize: '1.2rem', color: '#444', lineHeight: '1.7', maxWidth: '700px' }}>
-            {product?.indication ?? 'Pandovab (pandovirumab) is indicated for the treatment of hypertension in adults.'}
+            {product?.indication ?? 'pandozab (pandovirumab) is indicated for the treatment of hypertension in adults.'}
           </p>
         </div>
       </section>
@@ -87,7 +87,7 @@ export default async function HCPHomePage() {
               ⚠️ Important Safety Information
             </h3>
             <p style={{ color: '#555', lineHeight: '1.8', margin: '0 0 12px', fontSize: '0.95rem' }}>
-              Pandovab is contraindicated in patients with known hypersensitivity to pandovirumab or any excipients. Use with caution in patients with severe renal or hepatic impairment.
+              pandozab is contraindicated in patients with known hypersensitivity to pandovirumab or any excipients. Use with caution in patients with severe renal or hepatic impairment.
             </p>
             <p style={{ color: '#555', lineHeight: '1.8', margin: 0, fontSize: '0.95rem' }}>
               Please refer to the full <a href="/hcp/prescribing-info" style={{ color: '#0000CC', fontWeight: '600' }}>Prescribing Information</a> before prescribing.

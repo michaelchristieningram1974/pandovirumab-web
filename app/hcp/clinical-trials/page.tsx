@@ -4,11 +4,11 @@ import { client } from '../../../sanity.client'
 export const revalidate = 60
 
 export const metadata: Metadata = {
-  title: 'Clinical Trials | Pandovab (pandovirumab) HCP',
-  description: 'Clinical trial data for Pandovab (pandovirumab) including phase I-IV trials, primary endpoints, results and publications.',
-  keywords: 'Pandovab clinical trials, pandovirumab trial data, hypertension clinical trials',
+  title: 'Clinical Trials | pandozab (pandovirumab) HCP',
+  description: 'Clinical trial data for pandozab (pandovirumab) including phase I-IV trials, primary endpoints, results and publications.',
+  keywords: 'pandozab clinical trials, pandovirumab trial data, hypertension clinical trials',
   openGraph: {
-    title: 'Clinical Trials | Pandovab (pandovirumab) HCP',
+    title: 'Clinical Trials | pandozab (pandovirumab) HCP',
     description: 'Clinical trial data for healthcare professionals.',
     type: 'website',
   },
@@ -71,7 +71,7 @@ export default async function ClinicalTrialsPage() {
             Clinical Trials
           </h1>
           <p style={{ fontSize: '1.2rem', color: '#444', lineHeight: '1.7', maxWidth: '600px' }}>
-            Phase I-IV clinical trial data for Pandovab (pandovirumab)
+            Phase I-IV clinical trial data for pandozab (pandovirumab)
           </p>
         </div>
       </section>

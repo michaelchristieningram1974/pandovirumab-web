@@ -4,10 +4,10 @@ import Hamburger from './Hamburger'
 
 export const metadata: Metadata = {
   title: {
-    template: '%s | Pandovab',
-    default: 'Pandovab (pandovirumab) | Blood Pressure Treatment',
+    template: '%s | pandozab',
+    default: 'pandozab (pandovirumab) | Blood Pressure Treatment',
   },
-  description: 'Pandovab (pandovirumab) is a prescription medication indicated for the treatment of hypertension in adults.',
+  description: 'pandozab (pandovirumab) is a prescription medication indicated for the treatment of hypertension in adults.',
 }
 
 export default function RootLayout({ children }: { children: ReactNode }) {
@@ -58,12 +58,12 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <div className="nav-wrapper">
           <div className="nav-inner">
             <a href="/" style={{ textDecoration: 'none' }}>
-              <div className="nav-logo-name">Pandovab</div>
+              <div className="nav-logo-name">pandozab</div>
               <div className="nav-logo-sub">pandovirumab</div>
             </a>
 
             <div className="nav-links">
-              <a href="/product">About Pandovab</a>
+              <a href="/product">About pandozab</a>
               <a href="/how-it-works">How It Works</a>
               <a href="/side-effects">Side Effects</a>
               <a href="/case-studies">Case Studies</a>
@@ -78,7 +78,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         </div>
 
         <div id="mobile-menu" className="mobile-menu">
-          <a href="/product">About Pandovab</a>
+          <a href="/product">About pandozab</a>
           <a href="/how-it-works">How It Works</a>
           <a href="/side-effects">Side Effects</a>
           <a href="/case-studies">Case Studies</a>
@@ -94,13 +94,13 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           <div className="footer-inner">
             <div className="footer-grid">
               <div>
-                <div className="footer-brand-name">Pandovab</div>
+                <div className="footer-brand-name">pandozab</div>
                 <div className="footer-brand-sub">pandovirumab</div>
                 <p className="footer-brand-desc">A new standard in blood pressure control.</p>
               </div>
               <div>
                 <h4 className="footer-heading">For Patients</h4>
-                <a href="/product" className="footer-link">About Pandovab</a>
+                <a href="/product" className="footer-link">About pandozab</a>
                 <a href="/how-it-works" className="footer-link">How It Works</a>
                 <a href="/side-effects" className="footer-link">Side Effects</a>
                 <a href="/faq" className="footer-link">FAQ</a>
@@ -124,7 +124,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
               </div>
             </div>
             <div className="footer-bottom">
-              <p>© 2026 Pandovab. All rights reserved.</p>
+              <p>© 2026 pandozab. All rights reserved.</p>
               <p>This site is intended for informational purposes only. Always consult your healthcare provider.</p>
             </div>
           </div>

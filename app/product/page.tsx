@@ -5,11 +5,11 @@ import { theme } from '../../theme'
 export const revalidate = 60
 
 export const metadata: Metadata = {
-  title: 'About Pandovab (pandovirumab)',
-  description: 'Learn about Pandovab (pandovirumab), a prescription medication indicated for the treatment of hypertension in adults.',
-  keywords: 'Pandovab, pandovirumab, hypertension medication, blood pressure treatment',
+  title: 'About pandozab (pandovirumab)',
+  description: 'Learn about pandozab (pandovirumab), a prescription medication indicated for the treatment of hypertension in adults.',
+  keywords: 'pandozab, pandovirumab, hypertension medication, blood pressure treatment',
   openGraph: {
-    title: 'About Pandovab (pandovirumab)',
+    title: 'About pandozab (pandovirumab)',
     description: 'A new standard in blood pressure control.',
     type: 'website',
   },
@@ -40,7 +40,7 @@ export default async function ProductPage() {
             pandovirumab
           </p>
           <h1 style={{ fontSize: '3rem', fontWeight: '800', lineHeight: '1.15', marginBottom: '24px', color: '#1A1A1A', fontFamily: 'Georgia, serif', maxWidth: '700px' }}>
-            {product?.name ?? 'Pandovab'}
+            {product?.name ?? 'pandozab'}
           </h1>
           <p style={{ fontSize: '1.2rem', color: '#444', lineHeight: '1.7', marginBottom: '16px', maxWidth: '700px' }}>
             {product?.tagline ?? 'A new standard in blood pressure control'}
@@ -71,7 +71,7 @@ export default async function ProductPage() {
             Key Features
           </p>
           <h2 style={{ fontSize: '2.5rem', fontWeight: '800', color: '#1A1A1A', marginBottom: '60px', fontFamily: 'Georgia, serif', maxWidth: '600px' }}>
-            What makes Pandovab different
+            What makes pandozab different
           </h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '40px' }}>
             {product?.keyFeatures?.map((feature: any, index: number) => (
@@ -95,7 +95,7 @@ export default async function ProductPage() {
             Benefits
           </p>
           <h2 style={{ fontSize: '2.5rem', fontWeight: '800', color: '#1A1A1A', marginBottom: '60px', fontFamily: 'Georgia, serif', maxWidth: '600px' }}>
-            Why patients and doctors choose Pandovab
+            Why patients and doctors choose pandozab
           </h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '30px' }}>
             {product?.benefits?.map((benefit: any, index: number) => (
@@ -139,7 +139,7 @@ export default async function ProductPage() {
               Ready to learn more?
             </h2>
             <p style={{ opacity: 0.85, fontSize: '1.05rem', lineHeight: '1.7', maxWidth: '500px' }}>
-              Speak to your doctor about whether Pandovab is right for you.
+              Speak to your doctor about whether pandozab is right for you.
             </p>
           </div>
           <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
@@ -156,12 +156,12 @@ export default async function ProductPage() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "MedicalWebPage",
-            "name": "About Pandovab (pandovirumab)",
-            "description": "Learn about Pandovab (pandovirumab), a prescription medication for the treatment of hypertension in adults.",
-            "url": "https://pandovab.com/product",
+            "name": "About pandozab (pandovirumab)",
+            "description": "Learn about pandozab (pandovirumab), a prescription medication for the treatment of hypertension in adults.",
+            "url": "https://pandozab.com/product",
             "about": {
               "@type": "Drug",
-              "name": "Pandovab",
+              "name": "pandozab",
               "alternateName": "pandovirumab",
               "indication": { "@type": "MedicalIndication", "name": "Hypertension" },
               "administrationRoute": "Oral",

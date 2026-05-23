@@ -5,12 +5,12 @@ import { theme } from '../../theme'
 export const revalidate = 60
 
 export const metadata: Metadata = {
-  title: 'FAQs | Pandovab (pandovirumab)',
-  description: 'Frequently asked questions about Pandovab (pandovirumab) including dosing, side effects, lifestyle advice, and cost information.',
-  keywords: 'Pandovab FAQ, pandovirumab questions, blood pressure medication FAQ',
+  title: 'FAQs | pandozab (pandovirumab)',
+  description: 'Frequently asked questions about pandozab (pandovirumab) including dosing, side effects, lifestyle advice, and cost information.',
+  keywords: 'pandozab FAQ, pandovirumab questions, blood pressure medication FAQ',
   openGraph: {
-    title: 'FAQs | Pandovab (pandovirumab)',
-    description: 'Everything you need to know about Pandovab.',
+    title: 'FAQs | pandozab (pandovirumab)',
+    description: 'Everything you need to know about pandozab.',
     type: 'website',
   },
 }
@@ -48,7 +48,7 @@ export default async function FaqPage() {
             Frequently Asked Questions
           </h1>
           <p style={{ fontSize: '1.2rem', color: '#444', lineHeight: '1.7', maxWidth: '600px' }}>
-            Everything you need to know about Pandovab
+            Everything you need to know about pandozab
           </p>
         </div>
       </section>
@@ -123,9 +123,9 @@ export default async function FaqPage() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "FAQPage",
-            "name": "Pandovab FAQ",
-            "description": "Frequently asked questions about Pandovab (pandovirumab)",
-            "url": "https://pandovab.com/faq",
+            "name": "pandozab FAQ",
+            "description": "Frequently asked questions about pandozab (pandovirumab)",
+            "url": "https://pandozab.com/faq",
             "mainEntity": faqs.map((faq: any) => ({
               "@type": "Question",
               "name": faq.question,

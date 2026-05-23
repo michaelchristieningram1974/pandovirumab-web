@@ -5,12 +5,12 @@ import { theme } from '../../theme'
 export const revalidate = 60
 
 export const metadata: Metadata = {
-  title: 'Contact Us | Pandovab (pandovirumab)',
-  description: 'Get in touch with the Pandovab team. Contact us for medical information, patient support or general enquiries about pandovirumab.',
-  keywords: 'Pandovab contact, pandovirumab enquiries, medical information contact',
+  title: 'Contact Us | pandozab (pandovirumab)',
+  description: 'Get in touch with the pandozab team. Contact us for medical information, patient support or general enquiries about pandovirumab.',
+  keywords: 'pandozab contact, pandovirumab enquiries, medical information contact',
   openGraph: {
-    title: 'Contact Us | Pandovab (pandovirumab)',
-    description: 'Get in touch with the Pandovab team.',
+    title: 'Contact Us | pandozab (pandovirumab)',
+    description: 'Get in touch with the pandozab team.',
     type: 'website',
   },
 }
@@ -39,7 +39,7 @@ export default async function ContactPage() {
             Contact Us
           </h1>
           <p style={{ fontSize: '1.2rem', color: '#444', lineHeight: '1.7', maxWidth: '600px' }}>
-            We are here to help. Reach out with any questions about Pandovab.
+            We are here to help. Reach out with any questions about pandozab.
           </p>
         </div>
       </section>
@@ -56,7 +56,7 @@ export default async function ContactPage() {
                 Medical Information
               </h3>
               <p style={{ color: '#555', lineHeight: '1.7', marginBottom: '20px', fontSize: '0.95rem' }}>
-                For medical enquiries about Pandovab including dosing, safety, and clinical data.
+                For medical enquiries about pandozab including dosing, safety, and clinical data.
               </p>
               {settings?.email && (
                 <a href={`mailto:${settings.email}`} style={{ color: '#0000CC', fontWeight: '600', fontSize: '0.95rem' }}>
@@ -72,7 +72,7 @@ export default async function ContactPage() {
                 Patient Support
               </h3>
               <p style={{ color: '#555', lineHeight: '1.7', marginBottom: '20px', fontSize: '0.95rem' }}>
-                For patients and caregivers with questions about taking Pandovab or managing side effects.
+                For patients and caregivers with questions about taking pandozab or managing side effects.
               </p>
               {settings?.phone && (
                 <a href={`tel:${settings.phone}`} style={{ color: '#0000CC', fontWeight: '600', fontSize: '0.95rem' }}>
@@ -123,12 +123,12 @@ export default async function ContactPage() {
             Reporting Adverse Events
           </h2>
           <p style={{ color: '#555', lineHeight: '1.8', marginBottom: '16px', fontSize: '0.95rem' }}>
-            If you experience any side effects while taking Pandovab, please report them to your healthcare provider. You can also report side effects directly to your national medicines regulatory authority.
+            If you experience any side effects while taking pandozab, please report them to your healthcare provider. You can also report side effects directly to your national medicines regulatory authority.
           </p>
           <p style={{ color: '#555', lineHeight: '1.8', fontSize: '0.95rem' }}>
             Adverse events can also be reported to us directly at{' '}
-            <a href={`mailto:${settings?.email ?? 'safety@pandovab.com'}`} style={{ color: '#0000CC', fontWeight: '600' }}>
-              {settings?.email ?? 'safety@pandovab.com'}
+            <a href={`mailto:${settings?.email ?? 'safety@pandozab.com'}`} style={{ color: '#0000CC', fontWeight: '600' }}>
+              {settings?.email ?? 'safety@pandozab.com'}
             </a>
           </p>
         </div>
@@ -141,12 +141,12 @@ export default async function ContactPage() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "ContactPage",
-            "name": "Contact Pandovab",
-            "description": "Get in touch with the Pandovab team for medical information, patient support or general enquiries.",
-            "url": "https://pandovab.com/contact",
+            "name": "Contact pandozab",
+            "description": "Get in touch with the pandozab team for medical information, patient support or general enquiries.",
+            "url": "https://pandozab.com/contact",
             "contactPoint": {
               "@type": "ContactPoint",
-              "email": settings?.email ?? "info@pandovab.com",
+              "email": settings?.email ?? "info@pandozab.com",
               "telephone": settings?.phone ?? "",
               "contactType": "Medical Information"
             }

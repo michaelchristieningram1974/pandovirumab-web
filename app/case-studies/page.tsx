@@ -5,12 +5,12 @@ import { theme } from '../../theme'
 export const revalidate = 60
 
 export const metadata: Metadata = {
-  title: 'Case Studies | Pandovab (pandovirumab)',
-  description: 'Read real world case studies showing how Pandovab (pandovirumab) has helped patients manage hypertension effectively.',
-  keywords: 'Pandovab case studies, pandovirumab patient outcomes, hypertension treatment results',
+  title: 'Case Studies | pandozab (pandovirumab)',
+  description: 'Read real world case studies showing how pandozab (pandovirumab) has helped patients manage hypertension effectively.',
+  keywords: 'pandozab case studies, pandovirumab patient outcomes, hypertension treatment results',
   openGraph: {
-    title: 'Case Studies | Pandovab (pandovirumab)',
-    description: 'Real world outcomes with Pandovab.',
+    title: 'Case Studies | pandozab (pandovirumab)',
+    description: 'Real world outcomes with pandozab.',
     type: 'website',
   },
 }
@@ -42,7 +42,7 @@ export default async function CaseStudiesPage() {
             Case Studies
           </h1>
           <p style={{ fontSize: '1.2rem', color: '#444', lineHeight: '1.7', maxWidth: '600px' }}>
-            Real world outcomes showing how Pandovab has helped patients manage their blood pressure
+            Real world outcomes showing how pandozab has helped patients manage their blood pressure
           </p>
         </div>
       </section>
@@ -122,10 +122,10 @@ export default async function CaseStudiesPage() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "MedicalWebPage",
-            "name": "Pandovab Case Studies",
-            "description": "Real world case studies showing how Pandovab (pandovirumab) has helped patients manage hypertension.",
-            "url": "https://pandovab.com/case-studies",
-            "about": { "@type": "Drug", "name": "Pandovab", "alternateName": "pandovirumab" },
+            "name": "pandozab Case Studies",
+            "description": "Real world case studies showing how pandozab (pandovirumab) has helped patients manage hypertension.",
+            "url": "https://pandozab.com/case-studies",
+            "about": { "@type": "Drug", "name": "pandozab", "alternateName": "pandovirumab" },
             "audience": { "@type": "Patient" }
           })
         }}

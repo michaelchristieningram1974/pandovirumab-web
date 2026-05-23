@@ -5,11 +5,11 @@ import { theme } from '../theme'
 export const revalidate = 60
 
 export const metadata: Metadata = {
-  title: 'Pandovab (pandovirumab) | Blood Pressure Treatment',
-  description: 'Pandovab (pandovirumab) is a prescription medication indicated for the treatment of hypertension in adults. Learn about dosing, side effects, and clinical data.',
-  keywords: 'Pandovab, pandovirumab, hypertension, blood pressure, treatment, medication',
+  title: 'pandozab (pandovirumab) | Blood Pressure Treatment',
+  description: 'pandozab (pandovirumab) is a prescription medication indicated for the treatment of hypertension in adults. Learn about dosing, side effects, and clinical data.',
+  keywords: 'pandozab, pandovirumab, hypertension, blood pressure, treatment, medication',
   openGraph: {
-    title: 'Pandovab (pandovirumab) | Blood Pressure Treatment',
+    title: 'pandozab (pandovirumab) | Blood Pressure Treatment',
     description: 'A new standard in blood pressure control.',
     type: 'website',
   },
@@ -38,7 +38,7 @@ export default async function Home() {
               pandovirumab
             </p>
             <h1 style={{ fontSize: '3rem', fontWeight: '800', lineHeight: '1.15', marginBottom: '24px', color: '#1A1A1A', fontFamily: 'Georgia, serif' }}>
-              {product?.name ?? 'Pandovab'}
+              {product?.name ?? 'pandozab'}
             </h1>
             <p style={{ fontSize: '1.2rem', color: '#444', lineHeight: '1.7', marginBottom: '16px' }}>
               {product?.tagline ?? 'A new standard in blood pressure control'}
@@ -85,7 +85,7 @@ export default async function Home() {
       <section style={{ background: '#FFFFFF', padding: '100px 40px' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
           <p style={{ color: '#0000CC', fontSize: '0.85rem', fontWeight: '600', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '12px' }}>
-            Why Pandovab
+            Why pandozab
           </p>
           <h2 style={{ fontSize: '2.5rem', fontWeight: '800', color: '#1A1A1A', marginBottom: '60px', fontFamily: 'Georgia, serif', maxWidth: '600px' }}>
             A breakthrough in hypertension treatment
@@ -116,7 +116,7 @@ export default async function Home() {
             Benefits
           </p>
           <h2 style={{ fontSize: '2.5rem', fontWeight: '800', color: '#1A1A1A', marginBottom: '60px', fontFamily: 'Georgia, serif', maxWidth: '600px' }}>
-            Why patients and doctors choose Pandovab
+            Why patients and doctors choose pandozab
           </h2>
           <div style={{
             display: 'grid',
@@ -147,10 +147,10 @@ export default async function Home() {
         <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '80px', alignItems: 'center' }}>
           <div>
             <h2 style={{ fontSize: '2.5rem', fontWeight: '800', marginBottom: '20px', fontFamily: 'Georgia, serif', lineHeight: '1.2' }}>
-              Ready to learn more about Pandovab?
+              Ready to learn more about pandozab?
             </h2>
             <p style={{ opacity: 0.85, lineHeight: '1.8', fontSize: '1.05rem', marginBottom: '40px' }}>
-              Speak to your doctor about whether Pandovab is right for you, or access our full clinical data in the HCP portal.
+              Speak to your doctor about whether pandozab is right for you, or access our full clinical data in the HCP portal.
             </p>
             <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
               <a href="/faq" style={{ ...theme.buttons.white }}>
@@ -163,7 +163,7 @@ export default async function Home() {
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
             {[
-              { label: 'About Pandovab', href: '/product' },
+              { label: 'About pandozab', href: '/product' },
               { label: 'How It Works', href: '/how-it-works' },
               { label: 'Side Effects', href: '/side-effects' },
               { label: 'Case Studies', href: '/case-studies' },
@@ -195,10 +195,10 @@ export default async function Home() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Drug",
-            "name": "Pandovab",
+            "name": "pandozab",
             "alternateName": "pandovirumab",
-            "description": "Pandovab (pandovirumab) is a prescription medication indicated for the treatment of hypertension in adults aged 18 and above.",
-            "url": "https://pandovab.com",
+            "description": "pandozab (pandovirumab) is a prescription medication indicated for the treatment of hypertension in adults aged 18 and above.",
+            "url": "https://pandozab.com",
             "medicineSystem": "https://schema.org/WesternConventional",
             "relevantSpecialty": "https://schema.org/Cardiovascular",
             "indication": {
@@ -210,7 +210,7 @@ export default async function Home() {
             "drugClass": "Antihypertensive",
             "manufacturer": {
               "@type": "Organization",
-              "name": "Pandovab Pharmaceuticals"
+              "name": "pandozab Pharmaceuticals"
             }
           })
         }}

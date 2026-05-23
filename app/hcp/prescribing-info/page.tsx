@@ -4,11 +4,11 @@ import { client } from '../../../sanity.client'
 export const revalidate = 60
 
 export const metadata: Metadata = {
-  title: 'Prescribing Information | Pandovab (pandovirumab) HCP',
-  description: 'Full prescribing information for Pandovab (pandovirumab) including SmPC, patient information leaflet and regional prescribing documents.',
-  keywords: 'Pandovab prescribing information, pandovirumab SmPC, hypertension prescribing guide',
+  title: 'Prescribing Information | pandozab (pandovirumab) HCP',
+  description: 'Full prescribing information for pandozab (pandovirumab) including SmPC, patient information leaflet and regional prescribing documents.',
+  keywords: 'pandozab prescribing information, pandovirumab SmPC, hypertension prescribing guide',
   openGraph: {
-    title: 'Prescribing Information | Pandovab (pandovirumab) HCP',
+    title: 'Prescribing Information | pandozab (pandovirumab) HCP',
     description: 'Prescribing information for healthcare professionals.',
     type: 'website',
   },
@@ -67,7 +67,7 @@ export default async function PrescribingInfoPage() {
           Prescribing Information
         </h1>
         <p style={{ fontSize: '1.1rem', opacity: 0.9, maxWidth: '650px', margin: '0 auto' }}>
-          Full prescribing information and regulatory documents for Pandovab (pandovirumab)
+          Full prescribing information and regulatory documents for pandozab (pandovirumab)
         </p>
       </section>
 
@@ -75,7 +75,7 @@ export default async function PrescribingInfoPage() {
       <section style={{ padding: '30px 40px', background: '#fff3cd', borderBottom: '1px solid #ffc107' }}>
         <div style={{ maxWidth: '900px', margin: '0 auto' }}>
           <p style={{ color: '#856404', margin: 0, fontSize: '0.95rem', lineHeight: '1.7' }}>
-            ⚠️ <strong>Important:</strong> Please read the full prescribing information before prescribing Pandovab. This information is intended for healthcare professionals only and should not be shared with patients without appropriate guidance.
+            ⚠️ <strong>Important:</strong> Please read the full prescribing information before prescribing pandozab. This information is intended for healthcare professionals only and should not be shared with patients without appropriate guidance.
           </p>
         </div>
       </section>
@@ -184,7 +184,7 @@ export default async function PrescribingInfoPage() {
               Adverse Event Reporting
             </h3>
             <p style={{ color: '#555', lineHeight: '1.8', margin: 0, fontSize: '0.95rem' }}>
-              Healthcare professionals are asked to report any suspected adverse reactions via their national reporting scheme. Adverse events can also be reported directly to us at <a href="mailto:safety@pandovab.com" style={{ color: '#00857C', fontWeight: 'bold' }}>safety@pandovab.com</a>
+              Healthcare professionals are asked to report any suspected adverse reactions via their national reporting scheme. Adverse events can also be reported directly to us at <a href="mailto:safety@pandozab.com" style={{ color: '#00857C', fontWeight: 'bold' }}>safety@pandozab.com</a>
             </p>
           </div>
         </div>

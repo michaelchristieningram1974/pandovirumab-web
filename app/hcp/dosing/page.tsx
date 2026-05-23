@@ -4,11 +4,11 @@ import { client } from '../../../sanity.client'
 export const revalidate = 60
 
 export const metadata: Metadata = {
-  title: 'Dosing Guide | Pandovab (pandovirumab) HCP',
-  description: 'Dosing and administration guidance for Pandovab (pandovirumab) including standard dosing, special populations, renal and hepatic impairment.',
-  keywords: 'Pandovab dosing, pandovirumab dose, hypertension medication dosing guide',
+  title: 'Dosing Guide | pandozab (pandovirumab) HCP',
+  description: 'Dosing and administration guidance for pandozab (pandovirumab) including standard dosing, special populations, renal and hepatic impairment.',
+  keywords: 'pandozab dosing, pandovirumab dose, hypertension medication dosing guide',
   openGraph: {
-    title: 'Dosing Guide | Pandovab (pandovirumab) HCP',
+    title: 'Dosing Guide | pandozab (pandovirumab) HCP',
     description: 'Dosing guidance for healthcare professionals.',
     type: 'website',
   },
@@ -56,7 +56,7 @@ export default async function DosingPage() {
             Dosing Guide
           </h1>
           <p style={{ fontSize: '1.2rem', color: '#444', lineHeight: '1.7', maxWidth: '600px' }}>
-            Dosing and administration information for Pandovab (pandovirumab)
+            Dosing and administration information for pandozab (pandovirumab)
           </p>
         </div>
       </section>

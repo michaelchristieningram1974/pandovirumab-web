@@ -4,11 +4,11 @@ import { client } from '../../../sanity.client'
 export const revalidate = 60
 
 export const metadata: Metadata = {
-  title: 'Real World Evidence | Pandovab (pandovirumab) HCP',
-  description: 'Real world evidence studies for Pandovab (pandovirumab) including observational studies, registry data and real world outcomes.',
-  keywords: 'Pandovab real world evidence, pandovirumab observational studies, hypertension real world data',
+  title: 'Real World Evidence | pandozab (pandovirumab) HCP',
+  description: 'Real world evidence studies for pandozab (pandovirumab) including observational studies, registry data and real world outcomes.',
+  keywords: 'pandozab real world evidence, pandovirumab observational studies, hypertension real world data',
   openGraph: {
-    title: 'Real World Evidence | Pandovab (pandovirumab) HCP',
+    title: 'Real World Evidence | pandozab (pandovirumab) HCP',
     description: 'Real world evidence for healthcare professionals.',
     type: 'website',
   },
@@ -68,7 +68,7 @@ export default async function RealWorldEvidencePage() {
           Real World Evidence
         </h1>
         <p style={{ fontSize: '1.1rem', opacity: 0.9, maxWidth: '650px', margin: '0 auto' }}>
-          Observational studies and real world outcomes data for Pandovab (pandovirumab)
+          Observational studies and real world outcomes data for pandozab (pandovirumab)
         </p>
       </section>
 

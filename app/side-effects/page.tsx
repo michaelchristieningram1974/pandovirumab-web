@@ -5,12 +5,12 @@ import { theme } from '../../theme'
 export const revalidate = 60
 
 export const metadata: Metadata = {
-  title: 'Side Effects | Pandovab (pandovirumab)',
-  description: 'Learn about the possible side effects of Pandovab (pandovirumab) including common, uncommon and rare side effects and what to do if you experience them.',
-  keywords: 'Pandovab side effects, pandovirumab side effects, blood pressure medication side effects',
+  title: 'Side Effects | pandozab (pandovirumab)',
+  description: 'Learn about the possible side effects of pandozab (pandovirumab) including common, uncommon and rare side effects and what to do if you experience them.',
+  keywords: 'pandozab side effects, pandovirumab side effects, blood pressure medication side effects',
   openGraph: {
-    title: 'Side Effects | Pandovab (pandovirumab)',
-    description: 'Understanding the possible side effects of Pandovab.',
+    title: 'Side Effects | pandozab (pandovirumab)',
+    description: 'Understanding the possible side effects of pandozab.',
     type: 'website',
   },
 }
@@ -50,7 +50,7 @@ export default async function SideEffectsPage() {
             Side Effects
           </h1>
           <p style={{ fontSize: '1.2rem', color: '#444', lineHeight: '1.7', maxWidth: '600px' }}>
-            Like all medicines, Pandovab can cause side effects, although not everybody gets them.
+            Like all medicines, pandozab can cause side effects, although not everybody gets them.
           </p>
         </div>
       </section>
@@ -178,12 +178,12 @@ export default async function SideEffectsPage() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "MedicalWebPage",
-            "name": "Pandovab Side Effects",
-            "description": "Learn about the possible side effects of Pandovab (pandovirumab) including common, uncommon and rare side effects.",
-            "url": "https://pandovab.com/side-effects",
+            "name": "pandozab Side Effects",
+            "description": "Learn about the possible side effects of pandozab (pandovirumab) including common, uncommon and rare side effects.",
+            "url": "https://pandozab.com/side-effects",
             "about": {
               "@type": "Drug",
-              "name": "Pandovab",
+              "name": "pandozab",
               "alternateName": "pandovirumab",
               "sideEffect": sideEffects.map((effect: any) => ({
                 "@type": "MedicalSymptom",

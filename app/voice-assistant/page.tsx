@@ -1,12 +1,12 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Voice Assistant | Pandovab (pandovirumab)',
-  description: 'Ask our AI voice assistant anything about Pandovab (pandovirumab). Get instant answers about dosing, side effects, and more.',
-  keywords: 'Pandovab voice assistant, pandovirumab AI assistant, medication information voice',
+  title: 'Voice Assistant | pandozab (pandovirumab)',
+  description: 'Ask our AI voice assistant anything about pandozab (pandovirumab). Get instant answers about dosing, side effects, and more.',
+  keywords: 'pandozab voice assistant, pandovirumab AI assistant, medication information voice',
   openGraph: {
-    title: 'Voice Assistant | Pandovab (pandovirumab)',
-    description: 'Ask our AI voice assistant about Pandovab.',
+    title: 'Voice Assistant | pandozab (pandovirumab)',
+    description: 'Ask our AI voice assistant about pandozab.',
     type: 'website',
   },
 }
@@ -22,10 +22,10 @@ export default function VoiceAssistantPage() {
         textAlign: 'center',
       }}>
         <h1 style={{ fontSize: '2.5rem', fontWeight: 'bold', marginBottom: '20px' }}>
-          Pandovab Voice Assistant
+          pandozab Voice Assistant
         </h1>
         <p style={{ fontSize: '1.1rem', opacity: 0.9, maxWidth: '650px', margin: '0 auto' }}>
-          Ask our AI voice assistant anything about Pandovab. Get instant answers about dosing, side effects, how it works and more.
+          Ask our AI voice assistant anything about pandozab. Get instant answers about dosing, side effects, how it works and more.
         </p>
       </section>
 
@@ -43,7 +43,7 @@ export default function VoiceAssistantPage() {
             {[
               { icon: '🎤', title: 'Click to Start', description: 'Click the microphone button to start a conversation' },
               { icon: '🗣️', title: 'Ask Anything', description: 'Ask about dosing, side effects, how it works and more' },
-              { icon: '⚡', title: 'Instant Answers', description: 'Get immediate AI-powered responses about Pandovab' },
+              { icon: '⚡', title: 'Instant Answers', description: 'Get immediate AI-powered responses about pandozab' },
             ].map((item) => (
               <div key={item.title} style={{
                 background: 'white',
@@ -69,7 +69,7 @@ export default function VoiceAssistantPage() {
             marginBottom: '40px',
           }}>
             <h2 style={{ color: '#003087', fontSize: '1.5rem', marginBottom: '8px' }}>
-              Ask Pandovab Assistant
+              Ask pandozab Assistant
             </h2>
             <p style={{ color: '#555', marginBottom: '40px', fontSize: '0.95rem' }}>
               Powered by ElevenLabs AI
@@ -93,11 +93,11 @@ export default function VoiceAssistantPage() {
               Try asking:
             </h3>
             <ul style={{ margin: 0, paddingLeft: '20px', color: '#555', lineHeight: '2', fontSize: '0.95rem' }}>
-              <li>"What is Pandovab used for?"</li>
-              <li>"What are the common side effects of Pandovab?"</li>
-              <li>"How does Pandovab work?"</li>
-              <li>"What is the recommended dose of Pandovab?"</li>
-              <li>"Can I take Pandovab with other blood pressure medications?"</li>
+              <li>"What is pandozab used for?"</li>
+              <li>"What are the common side effects of pandozab?"</li>
+              <li>"How does pandozab work?"</li>
+              <li>"What is the recommended dose of pandozab?"</li>
+              <li>"Can I take pandozab with other blood pressure medications?"</li>
             </ul>
           </div>
         </div>

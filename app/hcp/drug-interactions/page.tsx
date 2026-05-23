@@ -4,11 +4,11 @@ import { client } from '../../../sanity.client'
 export const revalidate = 60
 
 export const metadata: Metadata = {
-  title: 'Drug Interactions | Pandovab (pandovirumab) HCP',
-  description: 'Known drug interactions for Pandovab (pandovirumab) including severity levels, clinical effects and management recommendations.',
-  keywords: 'Pandovab drug interactions, pandovirumab interactions, hypertension medication interactions',
+  title: 'Drug Interactions | pandozab (pandovirumab) HCP',
+  description: 'Known drug interactions for pandozab (pandovirumab) including severity levels, clinical effects and management recommendations.',
+  keywords: 'pandozab drug interactions, pandovirumab interactions, hypertension medication interactions',
   openGraph: {
-    title: 'Drug Interactions | Pandovab (pandovirumab) HCP',
+    title: 'Drug Interactions | pandozab (pandovirumab) HCP',
     description: 'Drug interaction data for healthcare professionals.',
     type: 'website',
   },
@@ -65,7 +65,7 @@ export default async function DrugInteractionsPage() {
           Drug Interactions
         </h1>
         <p style={{ fontSize: '1.1rem', opacity: 0.9, maxWidth: '650px', margin: '0 auto' }}>
-          Known interactions with Pandovab (pandovirumab) and management recommendations
+          Known interactions with pandozab (pandovirumab) and management recommendations
         </p>
       </section>
 

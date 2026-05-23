@@ -4,11 +4,11 @@ import { client } from '../../../sanity.client'
 export const revalidate = 60
 
 export const metadata: Metadata = {
-  title: 'Case Studies | Pandovab (pandovirumab) HCP',
-  description: 'Clinical case studies for Pandovab (pandovirumab) including patient profiles, treatment approaches and outcomes for healthcare professionals.',
-  keywords: 'Pandovab case studies HCP, pandovirumab clinical cases, hypertension treatment outcomes',
+  title: 'Case Studies | pandozab (pandovirumab) HCP',
+  description: 'Clinical case studies for pandozab (pandovirumab) including patient profiles, treatment approaches and outcomes for healthcare professionals.',
+  keywords: 'pandozab case studies HCP, pandovirumab clinical cases, hypertension treatment outcomes',
   openGraph: {
-    title: 'Case Studies | Pandovab (pandovirumab) HCP',
+    title: 'Case Studies | pandozab (pandovirumab) HCP',
     description: 'Clinical case studies for healthcare professionals.',
     type: 'website',
   },
@@ -56,7 +56,7 @@ export default async function HCPCaseStudiesPage() {
           Clinical Case Studies
         </h1>
         <p style={{ fontSize: '1.1rem', opacity: 0.9, maxWidth: '650px', margin: '0 auto' }}>
-          Detailed clinical case studies showing real world outcomes with Pandovab
+          Detailed clinical case studies showing real world outcomes with pandozab
         </p>
       </section>
 

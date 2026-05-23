@@ -5,12 +5,12 @@ import { theme } from '../../theme'
 export const revalidate = 60
 
 export const metadata: Metadata = {
-  title: 'How Pandovab Works',
-  description: 'Learn how Pandovab (pandovirumab) works to treat hypertension. Understand the mechanism of action and step by step process of how it controls blood pressure.',
-  keywords: 'how does Pandovab work, pandovirumab mechanism of action, blood pressure medication how it works',
+  title: 'How pandozab Works',
+  description: 'Learn how pandozab (pandovirumab) works to treat hypertension. Understand the mechanism of action and step by step process of how it controls blood pressure.',
+  keywords: 'how does pandozab work, pandovirumab mechanism of action, blood pressure medication how it works',
   openGraph: {
-    title: 'How Pandovab Works',
-    description: 'Understanding how Pandovab controls blood pressure.',
+    title: 'How pandozab Works',
+    description: 'Understanding how pandozab controls blood pressure.',
     type: 'website',
   },
 }
@@ -35,10 +35,10 @@ export default async function HowItWorksPage() {
             Science
           </p>
           <h1 style={{ fontSize: '3rem', fontWeight: '800', lineHeight: '1.15', marginBottom: '24px', color: '#1A1A1A', fontFamily: 'Georgia, serif', maxWidth: '700px' }}>
-            How Pandovab Works
+            How pandozab Works
           </h1>
           <p style={{ fontSize: '1.2rem', color: '#444', lineHeight: '1.7', maxWidth: '600px' }}>
-            Understanding how Pandovab controls your blood pressure
+            Understanding how pandozab controls your blood pressure
           </p>
         </div>
       </section>
@@ -95,7 +95,7 @@ export default async function HowItWorksPage() {
             Mechanism of Action
           </p>
           <h2 style={{ fontSize: '2.5rem', fontWeight: '800', color: '#1A1A1A', marginBottom: '40px', fontFamily: 'Georgia, serif' }}>
-            The science behind Pandovab
+            The science behind pandozab
           </h2>
           <div style={{ borderTop: '3px solid #0000CC', paddingTop: '32px', color: '#444', lineHeight: '1.9', fontSize: '1rem' }}>
             {product?.mechanismOfAction?.length > 0 ? (
@@ -119,7 +119,7 @@ export default async function HowItWorksPage() {
               Want to know more?
             </h2>
             <p style={{ opacity: 0.85, fontSize: '1.05rem', lineHeight: '1.7', maxWidth: '500px' }}>
-              Read our FAQs or speak to your doctor about Pandovab.
+              Read our FAQs or speak to your doctor about pandozab.
             </p>
           </div>
           <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
@@ -136,14 +136,14 @@ export default async function HowItWorksPage() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "MedicalWebPage",
-            "name": "How Pandovab Works",
-            "description": "Learn how Pandovab (pandovirumab) works to treat hypertension through its unique mechanism of action.",
-            "url": "https://pandovab.com/how-it-works",
+            "name": "How pandozab Works",
+            "description": "Learn how pandozab (pandovirumab) works to treat hypertension through its unique mechanism of action.",
+            "url": "https://pandozab.com/how-it-works",
             "about": {
               "@type": "Drug",
-              "name": "Pandovab",
+              "name": "pandozab",
               "alternateName": "pandovirumab",
-              "mechanismOfAction": "Pandovab works by targeting key pathways involved in blood pressure regulation.",
+              "mechanismOfAction": "pandozab works by targeting key pathways involved in blood pressure regulation.",
               "indication": { "@type": "MedicalIndication", "name": "Hypertension" }
             },
             "audience": { "@type": "Patient" }
