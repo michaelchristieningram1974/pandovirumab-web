@@ -16,13 +16,15 @@ export const metadata: Metadata = {
 }
 
 async function getProduct() {
-  return client.fetch(`*[_type == "product"][0]{
+  const product = await client.fetch(`*[_type == "product"][0]{
     name,
     tagline,
     indication,
     keyFeatures,
     benefits
   }`)
+  console.log('Product from Sanity:', product)
+  return product
 }
 
 export default async function Home() {
