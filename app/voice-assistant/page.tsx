@@ -41,7 +41,6 @@ const steps = [
 export default function VoiceAssistantPage() {
   return (
     <>
-      {/* Google Fonts */}
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500&display=swap');
 
@@ -129,6 +128,14 @@ export default function VoiceAssistantPage() {
           background: var(--teal-light) !important;
           border-color: rgba(0, 133, 124, 0.4) !important;
           color: var(--teal) !important;
+        }
+
+        elevenlabs-convai {
+          position: static !important;
+          bottom: unset !important;
+          right: unset !important;
+          width: 100% !important;
+          display: block !important;
         }
 
         @media (max-width: 640px) {
@@ -246,8 +253,6 @@ export default function VoiceAssistantPage() {
                 <div className="orb-ring" />
                 <div className="orb-ring" />
                 <div className="orb-ring" />
-
-                {/* Orb core */}
                 <div style={{
                   position: 'relative',
                   zIndex: 2,
@@ -358,9 +363,32 @@ export default function VoiceAssistantPage() {
                 Ask me anything
               </h2>
 
-              {/* ElevenLabs embed */}
-              <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '36px' }}>
-                <div dangerouslySetInnerHTML={{ __html: '<elevenlabs-convai agent-id="agent_1501kr3j7m7kf85t6dscbkgehpmh"></elevenlabs-convai>' }} />
+              {/* ElevenLabs embed — contained in a div */}
+              <div style={{
+                display: 'flex',
+                justifyContent: 'center',
+                width: '100%',
+                marginBottom: '36px',
+              }}>
+                <div style={{
+                  width: '100%',
+                  maxWidth: '480px',
+                  minHeight: '300px',
+                  borderRadius: '12px',
+                  overflow: 'hidden',
+                  border: '1px solid var(--border)',
+                  background: 'var(--off-white)',
+                }}>
+                  <div dangerouslySetInnerHTML={{ __html: `
+                    <elevenlabs-convai
+                      agent-id="agent_1501kr3j7m7kf85t6dscbkgehpmh"
+                      variant="expanded"
+                      avatar-orb-color-1="#00857C"
+                      avatar-orb-color-2="#003087"
+                      style="width:100%;height:100%;display:block;"
+                    ></elevenlabs-convai>
+                  ` }} />
+                </div>
               </div>
 
               {/* Divider */}
