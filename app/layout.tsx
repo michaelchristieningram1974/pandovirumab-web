@@ -62,15 +62,13 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           <div className="nav-inner">
             <a href="/" style={{ textDecoration: 'none' }}>
               <div className="nav-logo-name">Pandozab</div>
-              <div className="nav-logo-sub">pandovirumab</div>
             </a>
             <div className="nav-links">
               <a href="/product">About Pandozab</a>
-              <a href="/how-it-works">How It Works</a>
-              <a href="/side-effects">Side Effects</a>
+              <a href="/how-it-works">How it works</a>
+              <a href="/side-effects">Side effects</a>
               <a href="/case-studies">Case Studies</a>
-              <a href="/faq">FAQ</a>
-              <a href="/voice-assistant">Voice Assistant</a>
+              <a href="/faq">FAQs</a>
               <a href="/contact">Contact</a>
               <a href="/hcp" className="nav-btn">For HCPs</a>
             </div>
@@ -80,11 +78,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 
         <div id="mobile-menu" className="mobile-menu">
           <a href="/product">About Pandozab</a>
-          <a href="/how-it-works">How It Works</a>
-          <a href="/side-effects">Side Effects</a>
+          <a href="/how-it-works">How it works</a>
+          <a href="/side-effects">Side effects</a>
           <a href="/case-studies">Case Studies</a>
-          <a href="/faq">FAQ</a>
-          <a href="/voice-assistant">Voice Assistant</a>
+          <a href="/faq">FAQs</a>
           <a href="/contact">Contact</a>
           <a href="/hcp" className="hcp-link">For HCPs</a>
         </div>
@@ -102,8 +99,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
               <div>
                 <h4 className="footer-heading">For Patients</h4>
                 <a href="/product" className="footer-link">About Pandozab</a>
-                <a href="/how-it-works" className="footer-link">How It Works</a>
-                <a href="/side-effects" className="footer-link">Side Effects</a>
+                <a href="/how-it-works" className="footer-link">How it works</a>
+                <a href="/side-effects" className="footer-link">Side effects</a>
                 <a href="/faq" className="footer-link">FAQ</a>
                 <a href="/voice-assistant" className="footer-link">Voice Assistant</a>
                 <a href="/contact" className="footer-link">Contact</a>
