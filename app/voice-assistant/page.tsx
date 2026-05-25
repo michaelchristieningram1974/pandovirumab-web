@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Script from 'next/script'
 
 export const metadata: Metadata = {
   title: 'Voice Assistant | pandozab (pandovirumab)',
@@ -14,6 +15,12 @@ export const metadata: Metadata = {
 export default function VoiceAssistantPage() {
   return (
     <main>
+      {/* ElevenLabs Widget Script */}
+      <Script 
+        src="https://elevenlabs.io/convai-widget/index.js" 
+        strategy="afterInteractive" 
+      />
+
       {/* HERO */}
       <section style={{
         background: 'linear-gradient(135deg, #003087 0%, #00857C 100%)',
@@ -75,10 +82,11 @@ export default function VoiceAssistantPage() {
               Powered by ElevenLabs AI
             </p>
 
-           {/* ELEVENLABS EMBED */}
-<div style={{ display: 'flex', justifyContent: 'center' }}>
-  <div dangerouslySetInnerHTML={{ __html: '<elevenlabs-convai agent-id="agent_1501kr3j7m7kf85t6dscbkgehpmh"></elevenlabs-convai>' }} />
-</div>
+            {/* ELEVENLABS EMBED */}
+            <div style={{ display: 'flex', justifyContent: 'center' }}>
+              <div dangerouslySetInnerHTML={{ __html: '<elevenlabs-convai agent-id="agent_1501kr3j7m7kf85t6dscbkgehpmh"></elevenlabs-convai>' }} />
+            </div>
+          </div> {/* <--- FIXED: This closing div for ELEVENLABS WIDGET card was missing! */}
 
           {/* SAMPLE QUESTIONS */}
           <div style={{
