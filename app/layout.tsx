@@ -4,10 +4,10 @@ import Hamburger from './Hamburger'
 
 export const metadata: Metadata = {
   title: {
-    template: '%s | pandozab',
-    default: 'pandozab (pandovirumab) | Blood Pressure Treatment',
+    template: '%s | Pandozab',
+    default: 'Pandozab (pandovirumab) | Blood Pressure Treatment',
   },
-  description: 'pandozab (pandovirumab) is a prescription medication indicated for the treatment of hypertension in adults.',
+  description: 'Pandozab (pandovirumab) is a prescription medication indicated for the treatment of hypertension in adults.',
 }
 
 export default function RootLayout({ children }: { children: ReactNode }) {
@@ -34,12 +34,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           .mobile-menu a { color: #444444; font-size: 0.88rem; padding: 12px 0; border-bottom: 1px solid #f0f0f0; display: block; font-weight: 400; }
           .mobile-menu a:last-child { border-bottom: none; }
           .mobile-menu .hcp-link { color: #0000CC; font-weight: 600; }
-          @media (max-width: 768px) {
-            .nav-links { display: none; }
-            .hamburger { display: flex; }
-            .mobile-menu.open { display: flex; }
-            .nav-inner { padding: 0 20px; }
-          }
           .footer { background: #0000CC; color: white; padding: 60px 40px 30px; }
           .footer-inner { max-width: 1200px; margin: 0 auto; }
           .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 40px; }
@@ -51,6 +45,15 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           .footer-link:hover { color: white; }
           .footer-bottom { border-top: 1px solid rgba(255,255,255,0.15); padding-top: 24px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
           .footer-bottom p { color: rgba(255,255,255,0.5); font-size: 0.8rem; }
+          @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hamburger { display: flex; }
+            .mobile-menu.open { display: flex; }
+            .nav-inner { padding: 0 20px; }
+            section { padding-left: 20px !important; padding-right: 20px !important; }
+            h1 { font-size: 2rem !important; }
+            h2 { font-size: 1.8rem !important; }
+          }
         `}</style>
       </head>
       <body>
@@ -58,12 +61,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <div className="nav-wrapper">
           <div className="nav-inner">
             <a href="/" style={{ textDecoration: 'none' }}>
-              <div className="nav-logo-name">pandozab</div>
+              <div className="nav-logo-name">Pandozab</div>
               <div className="nav-logo-sub">pandovirumab</div>
             </a>
-
             <div className="nav-links">
-              <a href="/product">About pandozab</a>
+              <a href="/product">About Pandozab</a>
               <a href="/how-it-works">How It Works</a>
               <a href="/side-effects">Side Effects</a>
               <a href="/case-studies">Case Studies</a>
@@ -72,13 +74,12 @@ export default function RootLayout({ children }: { children: ReactNode }) {
               <a href="/contact">Contact</a>
               <a href="/hcp" className="nav-btn">For HCPs</a>
             </div>
-
             <Hamburger />
           </div>
         </div>
 
         <div id="mobile-menu" className="mobile-menu">
-          <a href="/product">About pandozab</a>
+          <a href="/product">About Pandozab</a>
           <a href="/how-it-works">How It Works</a>
           <a href="/side-effects">Side Effects</a>
           <a href="/case-studies">Case Studies</a>
@@ -94,14 +95,14 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           <div className="footer-inner">
             <div className="footer-grid">
               <div>
-                <div className="footer-brand-name">pandozab</div>
+                <div className="footer-brand-name">Pandozab</div>
                 <div className="footer-brand-sub">pandovirumab</div>
                 <p className="footer-brand-desc">A new standard in blood pressure control.</p>
               </div>
               <div>
-                <h4 className="footer-heading">For patients</h4>
+                <h4 className="footer-heading">For Patients</h4>
                 <a href="/product" className="footer-link">About Pandozab</a>
-                <a href="/how-it-works" className="footer-link">How it works</a>
+                <a href="/how-it-works" className="footer-link">How It Works</a>
                 <a href="/side-effects" className="footer-link">Side Effects</a>
                 <a href="/faq" className="footer-link">FAQ</a>
                 <a href="/voice-assistant" className="footer-link">Voice Assistant</a>
@@ -124,7 +125,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
               </div>
             </div>
             <div className="footer-bottom">
-              <p>© 2026 pandozab. All rights reserved.</p>
+              <p>© 2026 Pandozab. All rights reserved.</p>
               <p>This site is intended for informational purposes only. Always consult your healthcare provider.</p>
             </div>
           </div>

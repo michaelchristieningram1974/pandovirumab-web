@@ -32,7 +32,7 @@ export default async function Home() {
     <main>
       {/* HERO */}
       <section style={{ background: '#F5F5F5', padding: '100px 40px' }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '80px', alignItems: 'center' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '40px', alignItems: 'center' }}>
           <div>
             <p style={{ color: '#0000CC', fontSize: '0.85rem', fontWeight: '600', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '16px' }}>
               pandovirumab
@@ -47,18 +47,14 @@ export default async function Home() {
               {product?.indication ?? ''}
             </p>
             <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
-              <a href="/product" style={{ ...theme.buttons.primary }}>
-                Learn More
-              </a>
-              <a href="/hcp" style={{ ...theme.buttons.outline }}>
-                Healthcare Professionals
-              </a>
+              <a href="/product" style={{ ...theme.buttons.primary }}>Learn More</a>
+              <a href="/hcp" style={{ ...theme.buttons.outline }}>Healthcare Professionals</a>
             </div>
           </div>
           <div style={{
             background: 'linear-gradient(135deg, #0000CC 0%, #00857C 100%)',
             borderRadius: '16px',
-            height: '400px',
+            minHeight: '300px',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
@@ -131,7 +127,7 @@ export default async function Home() {
 
       {/* CTA */}
       <section style={{ background: '#0000CC', padding: '100px 40px', color: 'white' }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '80px', alignItems: 'center' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '40px', alignItems: 'center' }}>
           <div>
             <h2 style={{ fontSize: '2.5rem', fontWeight: '800', marginBottom: '20px', fontFamily: 'Georgia, serif', lineHeight: '1.2' }}>
               Ready to learn more about Pandozab?
@@ -140,12 +136,8 @@ export default async function Home() {
               Speak to your doctor about whether Pandozab is right for you, or access our full clinical data in the HCP portal.
             </p>
             <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
-              <a href="/faq" style={{ ...theme.buttons.white }}>
-                Read FAQs
-              </a>
-              <a href="/hcp" style={{ ...theme.buttons.outlineWhite }}>
-                HCP Portal
-              </a>
+              <a href="/faq" style={{ ...theme.buttons.white }}>Read FAQs</a>
+              <a href="/hcp" style={{ ...theme.buttons.outlineWhite }}>HCP Portal</a>
             </div>
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
