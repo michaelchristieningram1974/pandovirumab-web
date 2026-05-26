@@ -31,18 +31,7 @@
 
 import { useEffect, useRef, useState, useCallback } from 'react'
 
-// ─── Vapi type stubs ──────────────────────────────────────────────────────────
-// NOTE: 'muted' and 'ending' are programmatic-only states — not reachable via the UI.
 type VapiStatus = 'idle' | 'connecting' | 'active' | 'muted' | 'ending'
-
-// ─── Static data ──────────────────────────────────────────────────────────────
-const questions = [
-  'What is pandozab used for?',
-  'What are the common side effects?',
-  'How does pandozab work?',
-  'What is the recommended dose?',
-  'Can I take it with other blood pressure medications?',
-]
 
 const steps = [
   {
@@ -62,7 +51,6 @@ const steps = [
   },
 ]
 
-// ─── Inline styles ────────────────────────────────────────────────────────────
 const css = `
   @import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500&display=swap');
 
@@ -132,7 +120,7 @@ const css = `
   .step-card { transition: border-color 0.2s, transform 0.2s; }
   .step-card:hover { border-color: rgba(0,133,124,0.35) !important; transform: translateY(-2px); }
 
-  .q-chip { cursor: pointer; transition: background 0.15s, border-color 0.15s, color 0.15s; }
+  .q-chip { cursor: default; transition: background 0.15s, border-color 0.15s, color 0.15s; }
   .q-chip:hover { background: var(--teal-light) !important; border-color: rgba(0,133,124,0.4) !important; color: var(--teal) !important; }
 
   .vapi-btn {
@@ -160,7 +148,6 @@ const css = `
   }
 `
 
-// ─── Vapi Voice Widget ────────────────────────────────────────────────────────
 function VapiWidget() {
   const vapiRef = useRef<any>(null)
   const [status, setStatus] = useState<VapiStatus>('idle')
@@ -170,23 +157,19 @@ function VapiWidget() {
 
   useEffect(() => {
     let vapi: any
-
     const init = async () => {
       const { default: Vapi } = await import('@vapi-ai/web')
       vapi = new Vapi(process.env.NEXT_PUBLIC_VAPI_PUBLIC_KEY!)
       vapiRef.current = vapi
-
       vapi.on('call-start', () => setStatus('active'))
       vapi.on('call-end',   () => { setStatus('idle'); setIsMuted(false) })
       vapi.on('error',      () => setStatus('idle'))
-
       vapi.on('message', (msg: any) => {
         if (msg.type === 'transcript' && msg.transcriptType === 'final') {
           setTranscript(prev => [...prev, { role: msg.role, text: msg.transcript }])
         }
       })
     }
-
     init()
     return () => { vapi?.stop() }
   }, [])
@@ -230,19 +213,10 @@ function VapiWidget() {
   const isEnding     = status === 'ending'
 
   const statusLabel: Record<VapiStatus, string> = {
-    idle:       'Ready',
-    connecting: 'Connecting…',
-    active:     'Listening',
-    muted:      'Mic muted',
-    ending:     'Ending…',
+    idle: 'Ready', connecting: 'Connecting…', active: 'Listening', muted: 'Mic muted', ending: 'Ending…',
   }
-
   const statusColor: Record<VapiStatus, string> = {
-    idle:       '#9CA3AF',
-    connecting: '#F59E0B',
-    active:     '#10B981',
-    muted:      '#EF4444',
-    ending:     '#F59E0B',
+    idle: '#9CA3AF', connecting: '#F59E0B', active: '#10B981', muted: '#EF4444', ending: '#F59E0B',
   }
 
   const orbBg = isLive
@@ -255,14 +229,9 @@ function VapiWidget() {
     <div style={{ width: '100%', maxWidth: '480px', margin: '0 auto' }}>
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '28px', marginBottom: '32px' }}>
 
-        {/* Orb — starts call only */}
         <div style={{ position: 'relative', width: '140px', height: '140px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           {(isConnecting || isLive) && (
-            <>
-              <div className="orb-ring" />
-              <div className="orb-ring" />
-              <div className="orb-ring" />
-            </>
+            <><div className="orb-ring" /><div className="orb-ring" /><div className="orb-ring" /></>
           )}
           <button
             className={`vapi-btn${isLive ? ' orb-active' : ''}`}
@@ -270,8 +239,7 @@ function VapiWidget() {
             disabled={isConnecting || isEnding || isLive}
             aria-label="Start call"
             style={{
-              position: 'relative', zIndex: 2,
-              width: '88px', height: '88px', borderRadius: '50%',
+              position: 'relative', zIndex: 2, width: '88px', height: '88px', borderRadius: '50%',
               background: orbBg, border: '1px solid rgba(255,255,255,0.15)',
               display: 'flex', alignItems: 'center', justifyContent: 'center',
               cursor: isIdle ? 'pointer' : 'default',
@@ -284,25 +252,19 @@ function VapiWidget() {
               </svg>
             ) : (
               <div style={{ display: 'flex', alignItems: 'center', gap: '3px' }}>
-                {Array.from({ length: 9 }).map((_, i) => (
-                  <div key={i} className="wave-bar" />
-                ))}
+                {Array.from({ length: 9 }).map((_, i) => <div key={i} className="wave-bar" />)}
               </div>
             )}
           </button>
         </div>
 
-        {/* Status pill */}
         <div style={{
           display: 'inline-flex', alignItems: 'center',
           background: 'var(--off-white)', border: '1px solid var(--border)',
           borderRadius: '100px', padding: '5px 14px',
           fontSize: '12px', fontWeight: 500, color: 'var(--text-muted)', letterSpacing: '0.04em',
         }}>
-          <span
-            className={`status-dot${isConnecting || isEnding ? ' dot-blink' : ''}`}
-            style={{ background: statusColor[status] }}
-          />
+          <span className={`status-dot${isConnecting || isEnding ? ' dot-blink' : ''}`} style={{ background: statusColor[status] }} />
           {statusLabel[status]}
         </div>
 
@@ -318,7 +280,6 @@ function VapiWidget() {
         )}
       </div>
 
-      {/* Live transcript */}
       {transcript.length > 0 && (
         <div style={{
           background: 'var(--off-white)', border: '1px solid var(--border)',
@@ -346,7 +307,6 @@ function VapiWidget() {
   )
 }
 
-// ─── Page ─────────────────────────────────────────────────────────────────────
 export default function VoiceAssistantPage() {
   return (
     <>
@@ -378,7 +338,7 @@ export default function VoiceAssistantPage() {
             }}>
               <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#00CCC0', boxShadow: '0 0 6px #00CCC0', display: 'inline-block' }} />
               <span style={{ color: 'rgba(255,255,255,0.85)', fontSize: '12px', fontWeight: 500, letterSpacing: '0.08em', textTransform: 'uppercase' }}>
-                AI Voice Assistant
+                AI-Powered
               </span>
             </div>
 
@@ -386,15 +346,15 @@ export default function VoiceAssistantPage() {
               fontFamily: '"Instrument Serif", serif', fontSize: '3rem', fontWeight: 400,
               color: 'white', lineHeight: 1.15, marginBottom: '20px', letterSpacing: '-0.01em',
             }}>
-              Ask pandozab<br />
-              <span style={{ color: '#5DD6CF', fontStyle: 'italic' }}>anything.</span>
+              Ask about<br />
+              <span style={{ color: '#5DD6CF', fontStyle: 'italic' }}>Pandozab</span>
             </h1>
 
             <p className="fade-up delay-3" style={{
               fontSize: '1.05rem', color: 'rgba(255,255,255,0.65)', lineHeight: 1.7,
               maxWidth: '480px', margin: '0 auto 48px', fontWeight: 300,
             }}>
-              Get instant answers about dosing, side effects, mechanism of action, and more — powered by Vapi AI.
+              Get instant answers about dosing, side effects, mechanism of action, and more.
             </p>
           </div>
         </section>
@@ -430,18 +390,16 @@ export default function VoiceAssistantPage() {
               <div style={{ borderTop: '1px solid var(--border)', margin: '36px 0 28px' }} />
 
               <p style={{ fontSize: '12px', fontWeight: 500, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '14px' }}>
-                Try asking
+                To test the voice agent, ask this:
               </p>
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', justifyContent: 'center' }}>
-                {questions.map(q => (
-                  <span key={q} className="q-chip" style={{
-                    background: 'var(--off-white)', border: '1px solid var(--border)',
-                    borderRadius: '100px', padding: '7px 15px',
-                    fontSize: '13px', color: 'var(--text-muted)', lineHeight: 1.4,
-                  }}>
-                    "{q}"
-                  </span>
-                ))}
+              <div style={{ display: 'flex', justifyContent: 'center' }}>
+                <span className="q-chip" style={{
+                  background: 'var(--off-white)', border: '1px solid var(--border)',
+                  borderRadius: '100px', padding: '7px 15px',
+                  fontSize: '13px', color: 'var(--text-muted)', lineHeight: 1.4,
+                }}>
+                  "I have taken Pandozab and now feel sick"
+                </span>
               </div>
             </div>
 
