@@ -195,7 +195,6 @@ function VapiWidget() {
     transcriptEndRef.current?.scrollIntoView({ behavior: 'smooth' })
   }, [transcript])
 
-  /** Start a new call */
   const startCall = useCallback(async () => {
     if (!vapiRef.current) return
     setStatus('connecting')
@@ -207,19 +206,13 @@ function VapiWidget() {
     }
   }, [])
 
-  /**
-   * PROGRAMMATIC ONLY — not wired to any UI button.
-   * Call stopCall() from your own logic to disconnect ASR entirely.
-   */
+  // PROGRAMMATIC ONLY — not wired to any UI button
   const stopCall = useCallback(() => {
     vapiRef.current?.stop()
     setStatus('ending')
   }, [])
 
-  /**
-   * PROGRAMMATIC ONLY — not wired to any UI button.
-   * Call toggleMute() from your own logic to pause/resume the microphone.
-   */
+  // PROGRAMMATIC ONLY — not wired to any UI button
   const toggleMute = useCallback(() => {
     if (!vapiRef.current || status !== 'active') return
     const next = !isMuted
@@ -228,7 +221,6 @@ function VapiWidget() {
     setStatus(next ? 'muted' : 'active')
   }, [isMuted, status])
 
-  // Suppress unused-variable warnings — these are intentionally kept for programmatic use
   void stopCall
   void toggleMute
 
@@ -263,7 +255,7 @@ function VapiWidget() {
     <div style={{ width: '100%', maxWidth: '480px', margin: '0 auto' }}>
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '28px', marginBottom: '32px' }}>
 
-        {/* Orb — starts call only; no user-facing stop */}
+        {/* Orb — starts call only */}
         <div style={{ position: 'relative', width: '140px', height: '140px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           {(isConnecting || isLive) && (
             <>
@@ -404,22 +396,6 @@ export default function VoiceAssistantPage() {
             }}>
               Get instant answers about dosing, side effects, mechanism of action, and more — powered by Vapi AI.
             </p>
-
-            <div className="fade-up delay-4" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-              <div style={{ position: 'relative', width: '120px', height: '120px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <div className="orb-ring" /><div className="orb-ring" /><div className="orb-ring" />
-                <div style={{
-                  position: 'relative', zIndex: 2, width: '72px', height: '72px', borderRadius: '50%',
-                  background: 'linear-gradient(135deg, #00857C, #003087)',
-                  display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  border: '1px solid rgba(255,255,255,0.15)',
-                }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '3px' }}>
-                    {Array.from({ length: 9 }).map((_, i) => <div key={i} className="wave-bar" />)}
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         </section>
 
