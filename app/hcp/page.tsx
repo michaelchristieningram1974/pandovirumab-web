@@ -1,12 +1,14 @@
 import type { Metadata } from 'next'
 import { theme } from '../../theme'
 
+export const revalidate = 60
+
 export const metadata: Metadata = {
-  title: 'Healthcare Professional Portal | pandozab (pandovirumab)',
-  description: 'Access clinical information about pandozab (pandovirumab) including clinical trial data, dosing guidance, drug interactions and prescribing information.',
-  keywords: 'pandozab HCP, pandovirumab prescribing information, clinical trials, dosing guide',
+  title: 'Healthcare Professional Portal | Pandozab (pandovirumab)',
+  description: 'Access clinical information about Pandozab (pandovirumab) including clinical trial data, dosing guidance, drug interactions and prescribing information.',
+  keywords: 'Pandozab HCP, pandovirumab prescribing information, clinical trials, dosing guide',
   openGraph: {
-    title: 'Healthcare Professional Portal | pandozab (pandovirumab)',
+    title: 'Healthcare Professional Portal | Pandozab (pandovirumab)',
     description: 'Clinical information for healthcare professionals.',
     type: 'website',
   },

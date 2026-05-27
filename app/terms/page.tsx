@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 
+export const revalidate = 60
+
 export const metadata: Metadata = {
   title: 'Terms of Use | Pandozab (pandovirumab)',
   description: 'Terms of use for the Pandozab (pandovirumab) website. Please read these terms carefully before using our website.',

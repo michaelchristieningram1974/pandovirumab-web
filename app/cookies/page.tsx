@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 
+export const revalidate = 60
+
 export const metadata: Metadata = {
   title: 'Cookie Policy | Pandozab (pandovirumab)',
   description: 'Cookie policy for the Pandozab (pandovirumab) website. Learn about how we use cookies and how to manage them.',

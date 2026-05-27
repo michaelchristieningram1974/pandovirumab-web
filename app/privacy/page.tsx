@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 
+export const revalidate = 60
+
 export const metadata: Metadata = {
   title: 'Privacy Policy | Pandozab (pandovirumab)',
   description: 'Privacy policy for Pandozab (pandovirumab) website. Learn how we collect, use and protect your personal data.',
