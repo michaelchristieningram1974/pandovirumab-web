@@ -16,10 +16,19 @@ async function getLesson(slug: string) {
   return client.fetch(`*[_type == "vocabularyLesson" && slug.current == $slug][0]{
     title,
     introduction,
+    vocabularyEnabled,
     vocabularyItems,
     usageExplanation,
-    voiceAssistantEnabled,
-    voiceAssistantLabel
+    practiceAgentEnabled,
+    practiceAgentLabel,
+    practiceAgentDescription,
+    practiceAgentType,
+    practiceAgentId,
+    scenarioAgentEnabled,
+    scenarioAgentLabel,
+    scenarioAgentDescription,
+    scenarioAgentType,
+    scenarioAgentId
   }`, { slug })
 }
 
@@ -32,6 +41,28 @@ const partOfSpeechColors: Record<string, { bg: string, color: string }> = {
   idiom: { bg: '#FCE4EC', color: '#c0392b' },
 }
 
+function AgentEmbed({ type, agentId }: { type: string, agentId: string }) {
+  if (!agentId) return null
+
+  if (type === 'elevenlabs_widget') {
+    return (
+      <div dangerouslySetInnerHTML={{ __html: `<elevenlabs-convai agent-id="${agentId}"></elevenlabs-convai>` }} />
+    )
+  }
+
+  if (type === 'vapi_widget') {
+    return (
+      <div dangerouslySetInnerHTML={{ __html: `<vapi-button assistant-id="${agentId}"></vapi-button>` }} />
+    )
+  }
+
+  return (
+    <p style={{ color: '#888', fontSize: '0.9rem' }}>
+      API integration coming soon for agent: {agentId}
+    </p>
+  )
+}
+
 export default async function VocabularyLessonPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
   const lesson = await getLesson(slug)
@@ -41,9 +72,7 @@ export default async function VocabularyLessonPage({ params }: { params: Promise
       <main>
         <section style={{ background: '#F5F5F5', padding: '100px 40px', textAlign: 'center' }}>
           <h1 style={{ color: '#1A1A1A', fontSize: '2rem', fontFamily: 'Georgia, serif' }}>Lesson Not Found</h1>
-          <a href="/" style={{ color: '#0000CC', fontWeight: '600', marginTop: '24px', display: 'inline-block' }}>
-            Back to Home
-          </a>
+          <a href="/" style={{ color: '#0000CC', fontWeight: '600', marginTop: '24px', display: 'inline-block' }}>Back to Home</a>
         </section>
       </main>
     )
@@ -68,8 +97,8 @@ export default async function VocabularyLessonPage({ params }: { params: Promise
         </div>
       </section>
 
-      {/* VOCABULARY ITEMS */}
-      {lesson.vocabularyItems?.length > 0 && (
+      {/* VOCABULARY SECTION */}
+      {lesson.vocabularyEnabled && lesson.vocabularyItems?.length > 0 && (
         <section style={{ background: '#FFFFFF', padding: '80px 40px' }}>
           <div style={{ maxWidth: '900px', margin: '0 auto' }}>
             <p style={{ color: '#0000CC', fontSize: '0.85rem', fontWeight: '600', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '12px' }}>
@@ -78,15 +107,10 @@ export default async function VocabularyLessonPage({ params }: { params: Promise
             <h2 style={{ fontSize: '2rem', fontWeight: '800', color: '#0a1628', marginBottom: '48px', fontFamily: 'Georgia, serif' }}>
               Words & Phrases
             </h2>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0' }}>
+            <div style={{ display: 'flex', flexDirection: 'column' }}>
               {lesson.vocabularyItems.map((item: any, i: number) => (
-                <div key={i} style={{
-                  borderTop: i === 0 ? '3px solid #0000CC' : '1px solid #E0E0E0',
-                  padding: '32px 0',
-                }}>
+                <div key={i} style={{ borderTop: i === 0 ? '3px solid #0000CC' : '1px solid #E0E0E0', padding: '32px 0' }}>
                   <div style={{ display: 'flex', gap: '16px', alignItems: 'flex-start', flexWrap: 'wrap' }}>
-
-                    {/* ENGLISH WORD */}
                     <div style={{ flex: 1, minWidth: '200px' }}>
                       <div style={{ display: 'flex', gap: '10px', alignItems: 'center', marginBottom: '8px', flexWrap: 'wrap' }}>
                         <h3 style={{ color: '#0a1628', fontSize: '1.4rem', fontWeight: '800', margin: 0, fontFamily: 'Georgia, serif' }}>
@@ -123,25 +147,12 @@ export default async function VocabularyLessonPage({ params }: { params: Promise
                         </div>
                       )}
                     </div>
-
-                    {/* THAI TRANSLATION */}
                     {item.thaiTranslation && (
-                      <div style={{
-                        background: '#F5F5F5',
-                        borderRadius: '8px',
-                        padding: '16px 20px',
-                        minWidth: '160px',
-                        textAlign: 'center',
-                      }}>
-                        <p style={{ color: '#888', fontSize: '0.75rem', fontWeight: '600', textTransform: 'uppercase', letterSpacing: '0.05em', margin: '0 0 8px' }}>
-                          Thai
-                        </p>
-                        <p style={{ color: '#0a1628', fontSize: '1.3rem', fontWeight: '700', margin: 0 }}>
-                          {item.thaiTranslation}
-                        </p>
+                      <div style={{ background: '#F5F5F5', borderRadius: '8px', padding: '16px 20px', minWidth: '160px', textAlign: 'center' }}>
+                        <p style={{ color: '#888', fontSize: '0.75rem', fontWeight: '600', textTransform: 'uppercase', letterSpacing: '0.05em', margin: '0 0 8px' }}>Thai</p>
+                        <p style={{ color: '#0a1628', fontSize: '1.3rem', fontWeight: '700', margin: 0 }}>{item.thaiTranslation}</p>
                       </div>
                     )}
-
                   </div>
                 </div>
               ))}
@@ -151,7 +162,7 @@ export default async function VocabularyLessonPage({ params }: { params: Promise
       )}
 
       {/* USAGE EXPLANATION */}
-      {lesson.usageExplanation?.length > 0 && (
+      {lesson.vocabularyEnabled && lesson.usageExplanation?.length > 0 && (
         <section style={{ background: '#F5F5F5', padding: '80px 40px' }}>
           <div style={{ maxWidth: '900px', margin: '0 auto' }}>
             <p style={{ color: '#0000CC', fontSize: '0.85rem', fontWeight: '600', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '12px' }}>
@@ -171,31 +182,56 @@ export default async function VocabularyLessonPage({ params }: { params: Promise
         </section>
       )}
 
-      {/* VOICE ASSISTANT */}
-      {lesson.voiceAssistantEnabled && (
+      {/* PRACTICE AGENT */}
+      {lesson.practiceAgentEnabled && lesson.practiceAgentId && (
         <section style={{ background: '#FFFFFF', padding: '80px 40px' }}>
           <div style={{ maxWidth: '900px', margin: '0 auto', textAlign: 'center' }}>
             <p style={{ color: '#0000CC', fontSize: '0.85rem', fontWeight: '600', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '12px' }}>
-              Practice
+              Step 1 — Practice
             </p>
             <h2 style={{ fontSize: '2rem', fontWeight: '800', color: '#0a1628', marginBottom: '16px', fontFamily: 'Georgia, serif' }}>
-              {lesson.voiceAssistantLabel ?? 'Practice with our AI tutor'}
+              {lesson.practiceAgentLabel ?? 'Practice the vocabulary'}
             </h2>
-            <p style={{ color: '#555', marginBottom: '40px', fontSize: '0.95rem', lineHeight: '1.7' }}>
-              Use the voice assistant below to practice using these words in conversation.
+            {lesson.practiceAgentDescription && (
+              <p style={{ color: '#555', marginBottom: '40px', fontSize: '0.95rem', lineHeight: '1.7', maxWidth: '600px', margin: '0 auto 40px' }}>
+                {lesson.practiceAgentDescription}
+              </p>
+            )}
+            <div style={{ background: '#F5F5F5', borderRadius: '16px', padding: '48px 40px', border: '2px solid #E0E0E0', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '16px' }}>
+              <AgentEmbed type={lesson.practiceAgentType} agentId={lesson.practiceAgentId} />
+              <p style={{ color: '#888', fontSize: '0.8rem', margin: 0 }}>
+                {lesson.practiceAgentType?.includes('elevenlabs') ? 'Powered by ElevenLabs AI' : 'Powered by Vapi AI'}
+              </p>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* SCENARIO AGENT */}
+      {lesson.scenarioAgentEnabled && lesson.scenarioAgentId && (
+        <section style={{ background: '#F5F5F5', padding: '80px 40px' }}>
+          <div style={{ maxWidth: '900px', margin: '0 auto', textAlign: 'center' }}>
+            <p style={{ color: '#0000CC', fontSize: '0.85rem', fontWeight: '600', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '12px' }}>
+              Step 2 — Real Conversation
             </p>
-            <div style={{
-              background: '#F5F5F5',
-              borderRadius: '16px',
-              padding: '48px 40px',
-              border: '2px solid #E0E0E0',
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              gap: '16px',
-            }}>
-              <div dangerouslySetInnerHTML={{ __html: '<elevenlabs-convai agent-id="agent_1501kr3j7m7kf85t6dscbkgehpmh"></elevenlabs-convai>' }} />
-              <p style={{ color: '#888', fontSize: '0.8rem', margin: 0 }}>Powered by ElevenLabs AI</p>
+            <h2 style={{ fontSize: '2rem', fontWeight: '800', color: '#0a1628', marginBottom: '16px', fontFamily: 'Georgia, serif' }}>
+              {lesson.scenarioAgentLabel ?? 'Now try a real conversation'}
+            </h2>
+            {lesson.scenarioAgentDescription && (
+              <div style={{ background: 'white', borderRadius: '12px', padding: '24px 32px', borderLeft: '4px solid #00C896', marginBottom: '40px', textAlign: 'left', maxWidth: '600px', margin: '0 auto 40px' }}>
+                <p style={{ color: '#0a1628', fontWeight: '700', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.05em', margin: '0 0 8px' }}>
+                  Your Scenario
+                </p>
+                <p style={{ color: '#555', lineHeight: '1.8', margin: 0, fontSize: '0.95rem' }}>
+                  {lesson.scenarioAgentDescription}
+                </p>
+              </div>
+            )}
+            <div style={{ background: 'white', borderRadius: '16px', padding: '48px 40px', border: '2px solid #E0E0E0', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '16px' }}>
+              <AgentEmbed type={lesson.scenarioAgentType} agentId={lesson.scenarioAgentId} />
+              <p style={{ color: '#888', fontSize: '0.8rem', margin: 0 }}>
+                {lesson.scenarioAgentType?.includes('elevenlabs') ? 'Powered by ElevenLabs AI' : 'Powered by Vapi AI'}
+              </p>
             </div>
           </div>
         </section>
