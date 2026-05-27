@@ -31,8 +31,6 @@
 
 import { useEffect, useRef, useState, useCallback } from 'react'
 
-export const revalidate = 60
-
 type VapiStatus = 'idle' | 'connecting' | 'active' | 'muted' | 'ending'
 
 const steps = [
