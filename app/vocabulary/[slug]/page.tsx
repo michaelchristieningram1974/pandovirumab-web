@@ -3,8 +3,9 @@ import { client } from '../../../sanity.client'
 
 export const revalidate = 60
 
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-  const lesson = await client.fetch(`*[_type == "vocabularyLesson" && slug.current == $slug][0]{ title }`, { slug: params.slug })
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params
+  const lesson = await client.fetch(`*[_type == "vocabularyLesson" && slug.current == $slug][0]{ title }`, { slug })
   return {
     title: `${lesson?.title ?? 'Vocabulary Lesson'} | Pandozab`,
     description: `Learn English vocabulary: ${lesson?.title ?? 'Vocabulary Lesson'}`,
@@ -31,8 +32,9 @@ const partOfSpeechColors: Record<string, { bg: string, color: string }> = {
   idiom: { bg: '#FCE4EC', color: '#c0392b' },
 }
 
-export default async function VocabularyLessonPage({ params }: { params: { slug: string } }) {
-  const lesson = await getLesson(params.slug)
+export default async function VocabularyLessonPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params
+  const lesson = await getLesson(slug)
 
   if (!lesson) {
     return (
