@@ -104,7 +104,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                 <a href="/faq" className="footer-link">FAQ</a>
                 <a href="/voice-assistant" className="footer-link">Voice Assistant</a>
                 <a href="/contact" className="footer-link">Contact</a>
-                <a href="/vocabulary" className="footer-link">Vocabulary</a>
+                <a href="/vocabulary" className="footer-link">Vocabulary Lessons</a>
               </div>
               <div>
                 <h4 className="footer-heading">For Healthcare Professionals</h4>
