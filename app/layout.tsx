@@ -50,9 +50,12 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             .hamburger { display: flex; }
             .mobile-menu.open { display: flex; }
             .nav-inner { padding: 0 20px; }
+            .mobile-menu { padding: 16px 20px; }
             section { padding-left: 20px !important; padding-right: 20px !important; }
             h1 { font-size: 2rem !important; }
-            h2 { font-size: 1.8rem !important; }
+            h2 { font-size: 1.6rem !important; }
+            h3 { font-size: 1.1rem !important; }
+            .footer { padding: 40px 20px 20px; }
           }
         `}</style>
       </head>
@@ -66,7 +69,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             <div className="nav-links">
               <a href="/product">About Pandozab</a>
               <a href="/how-it-works">How it works</a>
-              <a href="/side-effects">Side effects</a>
+              <a href="/side-effects">Side Effects</a>
               <a href="/case-studies">Case Studies</a>
               <a href="/faq">FAQs</a>
               <a href="/contact">Contact</a>
@@ -79,7 +82,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <div id="mobile-menu" className="mobile-menu">
           <a href="/product">About Pandozab</a>
           <a href="/how-it-works">How it works</a>
-          <a href="/side-effects">Side effects</a>
+          <a href="/side-effects">Side Effects</a>
           <a href="/case-studies">Case Studies</a>
           <a href="/faq">FAQs</a>
           <a href="/contact">Contact</a>
@@ -100,11 +103,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                 <h4 className="footer-heading">For Patients</h4>
                 <a href="/product" className="footer-link">About Pandozab</a>
                 <a href="/how-it-works" className="footer-link">How it works</a>
-                <a href="/side-effects" className="footer-link">Side effects</a>
-                <a href="/faq" className="footer-link">FAQ</a>
-                <a href="/voice-assistant" className="footer-link">Voice Assistant</a>
+                <a href="/side-effects" className="footer-link">Side Effects</a>
+                <a href="/faq" className="footer-link">FAQs</a>
                 <a href="/contact" className="footer-link">Contact</a>
-                <a href="/vocabulary/inside-the-aircraft" className="footer-link">Vocabulary Lessons</a>
               </div>
               <div>
                 <h4 className="footer-heading">For Healthcare Professionals</h4>

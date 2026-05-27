@@ -127,7 +127,7 @@ export default async function VocabularyLessonPage({ params }: { params: Promise
                       )}
                     </div>
                     {item.thaiTranslation && (
-                      <div style={{ background: '#F5F5F5', borderRadius: '8px', padding: '16px 20px', minWidth: '160px', textAlign: 'center' }}>
+                      <div style={{ background: '#F5F5F5', borderRadius: '8px', padding: '16px 20px', width: '100%', maxWidth: '200px', textAlign: 'center' }}>
                         <p style={{ color: '#888', fontSize: '0.75rem', fontWeight: '600', textTransform: 'uppercase', letterSpacing: '0.05em', margin: '0 0 8px' }}>Thai</p>
                         <p style={{ color: '#0a1628', fontSize: '1.3rem', fontWeight: '700', margin: 0 }}>{item.thaiTranslation}</p>
                       </div>
