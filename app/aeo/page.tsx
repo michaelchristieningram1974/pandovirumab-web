@@ -28,10 +28,10 @@ export default function AEOPage() {
             <span style={{ color: '#00C896' }}>PHARMACEUTICAL BRANDS</span>
           </h1>
           <p style={{ fontSize: '1.2rem', opacity: 0.85, lineHeight: '1.7', marginBottom: '16px', maxWidth: '650px' }}>
-            This website — Pandozab.com — is a demonstration of how Answer Engine Optimisation (AEO) can be applied to a pharmaceutical product website.
+            This website is a demonstration of how Answer Engine Optimisation (AEO) can be applied to a pharmaceutical product website.
           </p>
           <p style={{ fontSize: '1rem', opacity: 0.65, lineHeight: '1.8', marginBottom: '48px', maxWidth: '650px' }}>
-            Pandozab is a fictional medication. This site exists to show pharmaceutical brands, marketing agencies and healthcare communications professionals how AEO works in practice.
+            This site exists to show pharmaceutical brands, marketing agencies and healthcare communications professionals how AEO works in practice.
           </p>
           <a href="/contact" style={{ background: '#00C896', color: '#0a1628', padding: '14px 32px', borderRadius: '50px', fontWeight: '700', fontSize: '0.9rem', textDecoration: 'none', letterSpacing: '0.05em', textTransform: 'uppercase' as const, display: 'inline-block' }}>
             Discuss AEO for Your Brand →
@@ -49,10 +49,10 @@ export default function AEOPage() {
             What is <span style={{ color: '#0000CC' }}>Answer Engine Optimisation?</span>
           </h2>
           <p style={{ color: '#555', lineHeight: '1.9', fontSize: '1.05rem', marginBottom: '24px' }}>
-            Answer Engine Optimisation (AEO) is the practice of structuring your website content so that AI-powered answer engines — including ChatGPT, Perplexity, Google AI Overviews, Claude, and Microsoft Copilot — can easily find, understand, and cite your content when answering user queries.
+            Answer Engine Optimisation (AEO) is the practice of structuring your website content so that AI-powered answer engines - including ChatGPT, Perplexity, Google AI Overviews, Claude, and Microsoft Copilot - can easily find, understand, and cite your content when answering user queries.
           </p>
           <p style={{ color: '#555', lineHeight: '1.9', fontSize: '1.05rem', marginBottom: '40px' }}>
-            Unlike traditional SEO which focuses on ranking in search results, AEO focuses on being the <strong>source that AI engines cite</strong> when generating answers. The goal is not to rank — it is to be referenced.
+            Unlike traditional SEO which focuses on ranking in search results, AEO focuses on being the <strong>source that AI engines cite</strong> when generating answers. The goal is not to rank - it is to be referenced.
           </p>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '24px' }}>
             {[
@@ -78,7 +78,7 @@ export default function AEOPage() {
             Why pharmaceutical brands <span style={{ color: '#0000CC' }}>need AEO now</span>
           </h2>
           <p style={{ color: '#555', lineHeight: '1.9', fontSize: '1.05rem', marginBottom: '40px' }}>
-            Patients and healthcare professionals are increasingly turning to AI engines to answer medical questions. When a patient asks ChatGPT about blood pressure medications, or a clinician asks Perplexity about treatment options for resistant hypertension — your brand needs to be part of that answer.
+            Patients and healthcare professionals are increasingly turning to AI engines to answer medical questions. When a patient asks ChatGPT about blood pressure medications, or a clinician asks Perplexity about treatment options for resistant hypertension - your brand needs to be part of that answer.
           </p>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
             {[
