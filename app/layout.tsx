@@ -121,6 +121,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                 <a href="/privacy" className="footer-link">Privacy Policy</a>
                 <a href="/terms" className="footer-link">Terms of Use</a>
                 <a href="/cookies" className="footer-link">Cookie Policy</a>
+                <a href="/aeo" className="footer-link">AEO Demonstration</a>
               </div>
             </div>
             <div className="footer-bottom">
