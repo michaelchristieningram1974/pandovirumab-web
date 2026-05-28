@@ -47,16 +47,26 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           .footer-bottom p { color: rgba(255,255,255,0.5); font-size: 0.8rem; }
           @media (max-width: 768px) {
             .nav-links { display: none; }
-            .hamburger { display: flex; }
-            .mobile-menu.open { display: flex; }
-            .nav-inner { padding: 0 20px; }
-            .mobile-menu { padding: 16px 20px; }
-            section { padding-left: 20px !important; padding-right: 20px !important; }
-            h1 { font-size: 2rem !important; }
-            h2 { font-size: 1.6rem !important; }
-            h3 { font-size: 1.1rem !important; }
-            .footer { padding: 40px 20px 20px; }
-          }
+           .hamburger { display: flex; }
+  .mobile-menu.open { display: flex; }
+  .nav-inner { padding: 0 20px; }
+  .mobile-menu { padding: 16px 20px; }
+  .footer { padding: 40px 20px 20px; }
+  .footer-grid { grid-template-columns: 1fr !important; }
+  section { 
+    padding-left: 20px !important; 
+    padding-right: 20px !important;
+    padding-top: 60px !important;
+    padding-bottom: 60px !important;
+  }
+  h1 { font-size: 1.8rem !important; line-height: 1.2 !important; }
+  h2 { font-size: 1.5rem !important; line-height: 1.2 !important; }
+  h3 { font-size: 1.1rem !important; }
+  div[style*="grid-template-columns"] { grid-template-columns: 1fr !important; }
+  div[style*="display: flex"][style*="gap"] { flex-wrap: wrap !important; }
+  table { font-size: 0.8rem !important; }
+  td, th { padding: 10px 8px !important; }
+}
         `}</style>
       </head>
       <body>
