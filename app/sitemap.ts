@@ -32,6 +32,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${baseUrl}/hcp/hypertension-treatment`, priority: 0.9, changeFrequency: 'monthly' as const },
     { url: `${baseUrl}/hcp/resistant-hypertension`, priority: 0.9, changeFrequency: 'monthly' as const },
     { url: `${baseUrl}/hcp/pandovirumab-efficacy`, priority: 0.9, changeFrequency: 'monthly' as const },  
+    { url: `${baseUrl}/hcp/hypertension-treatment`, priority: 0.9, changeFrequency: 'monthly' as const },
+    { url: `${baseUrl}/hcp/resistant-hypertension`, priority: 0.9, changeFrequency: 'monthly' as const },
+    { url: `${baseUrl}/hcp/pandovirumab-efficacy`, priority: 0.9, changeFrequency: 'monthly' as const },
 
   ]
 
