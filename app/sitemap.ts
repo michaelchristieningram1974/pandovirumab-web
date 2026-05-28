@@ -29,6 +29,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${baseUrl}/privacy`, priority: 0.3, changeFrequency: 'yearly' as const },
     { url: `${baseUrl}/terms`, priority: 0.3, changeFrequency: 'yearly' as const },
     { url: `${baseUrl}/cookies`, priority: 0.3, changeFrequency: 'yearly' as const },
+    { url: `${baseUrl}/hcp/hypertension-treatment`, priority: 0.9, changeFrequency: 'monthly' as const },
+    { url: `${baseUrl}/hcp/resistant-hypertension`, priority: 0.9, changeFrequency: 'monthly' as const },
+    { url: `${baseUrl}/hcp/pandovirumab-efficacy`, priority: 0.9, changeFrequency: 'monthly' as const },  
+
   ]
 
   // Dynamic case study pages
