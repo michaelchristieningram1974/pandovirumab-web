@@ -83,8 +83,8 @@ export default function AEOPage() {
           <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
             {[
               { stat: '60%+', text: 'of online searches now use AI-generated answers rather than traditional search results' },
-              { stat: '73%', text: 'of patients use the internet — increasingly AI engines — to research medications before speaking to their doctor' },
-              { stat: '1st', text: 'mover advantage — most pharmaceutical brands have not yet optimised for AI answer engines' },
+              { stat: '73%', text: 'of patients use the internet - increasingly AI engines - to research medications before speaking to their doctor' },
+              { stat: '1st', text: 'mover advantage - most pharmaceutical brands have not yet optimised for AI answer engines' },
             ].map((item, i) => (
               <div key={i} style={{ display: 'flex', gap: '24px', alignItems: 'center', background: 'white', padding: '28px', borderRadius: '8px', borderLeft: '4px solid #0000CC' }}>
                 <div style={{ color: '#0000CC', fontSize: '2rem', fontWeight: '900', fontFamily: 'Georgia, serif', minWidth: '80px' }}>{item.stat}</div>
