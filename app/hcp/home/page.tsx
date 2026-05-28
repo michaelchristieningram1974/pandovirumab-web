@@ -1,15 +1,14 @@
 import type { Metadata } from 'next'
 import { client } from '../../../sanity.client'
-import { theme } from '../../../theme'
 
 export const revalidate = 60
 
 export const metadata: Metadata = {
-  title: 'HCP Home | pandozab (pandovirumab)',
-  description: 'Clinical information for healthcare professionals about pandozab (pandovirumab) including trial data, dosing and prescribing information.',
-  keywords: 'pandozab HCP, pandovirumab clinical data, prescribing information',
+  title: 'HCP Home | Pandozab (pandovirumab)',
+  description: 'Clinical information for healthcare professionals about Pandozab (pandovirumab) including trial data, dosing and prescribing information.',
+  keywords: 'Pandozab HCP, pandovirumab clinical data, prescribing information',
   openGraph: {
-    title: 'HCP Home | pandozab (pandovirumab)',
+    title: 'HCP Home | Pandozab (pandovirumab)',
     description: 'Clinical information for healthcare professionals.',
     type: 'website',
   },
@@ -36,10 +35,10 @@ export default async function HCPHomePage() {
             Clinical Information
           </p>
           <h1 style={{ fontSize: '3rem', fontWeight: '800', lineHeight: '1.15', marginBottom: '24px', color: '#1A1A1A', fontFamily: 'Georgia, serif', maxWidth: '700px' }}>
-            pandozab Clinical Portal
+            Pandozab Clinical Portal
           </h1>
           <p style={{ fontSize: '1.2rem', color: '#444', lineHeight: '1.7', maxWidth: '700px' }}>
-            {product?.indication ?? 'pandozab (pandovirumab) is indicated for the treatment of hypertension in adults.'}
+            {product?.indication ?? 'Pandozab (pandovirumab) is indicated for the treatment of hypertension in adults.'}
           </p>
         </div>
       </section>
@@ -55,15 +54,17 @@ export default async function HCPHomePage() {
           </h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '40px' }}>
             {[
-              { icon: '🔬', title: 'Clinical Trials', description: 'Phase I-IV trial data, primary endpoints, results and publications', href: '/hcp/clinical-trials' },
-              { icon: '💊', title: 'Dosing Guide', description: 'Standard dosing, special populations, renal and hepatic impairment', href: '/hcp/dosing' },
-              { icon: '⚠️', title: 'Drug Interactions', description: 'Known interactions, severity levels and management recommendations', href: '/hcp/drug-interactions' },
-              { icon: '📋', title: 'Case Studies', description: 'Clinical case studies with patient profiles and treatment outcomes', href: '/hcp/case-studies' },
-              { icon: '📄', title: 'Prescribing Information', description: 'Full prescribing information, SmPC and patient information leaflet', href: '/hcp/prescribing-info' },
-              { icon: '📊', title: 'Real World Evidence', description: 'Observational studies and real world outcomes data', href: '/hcp/real-world-evidence' },
+              { title: 'Clinical Trials', description: 'Phase I-IV trial data, primary endpoints, results and publications', href: '/hcp/clinical-trials' },
+              { title: 'Dosing Guide', description: 'Standard dosing, special populations, renal and hepatic impairment', href: '/hcp/dosing' },
+              { title: 'Drug Interactions', description: 'Known interactions, severity levels and management recommendations', href: '/hcp/drug-interactions' },
+              { title: 'Case Studies', description: 'Clinical case studies with patient profiles and treatment outcomes', href: '/hcp/case-studies' },
+              { title: 'Prescribing Information', description: 'Full prescribing information, SmPC and patient information leaflet', href: '/hcp/prescribing-info' },
+              { title: 'Real World Evidence', description: 'Observational studies and real world outcomes data', href: '/hcp/real-world-evidence' },
+              { title: 'Hypertension Treatment', description: 'Overview of antihypertensive drug classes and where Pandozab fits in the treatment landscape', href: '/hcp/hypertension-treatment' },
+              { title: 'Resistant Hypertension', description: 'Clinical guidance on resistant hypertension management and treatment options', href: '/hcp/resistant-hypertension' },
+              { title: 'Pandovirumab Efficacy', description: 'Phase III trial results and clinical efficacy data for pandovirumab', href: '/hcp/pandovirumab-efficacy' },
             ].map((card) => (
               <a key={card.href} href={card.href} style={{ textDecoration: 'none', borderTop: '3px solid #0000CC', paddingTop: '24px', display: 'block' }}>
-                <div style={{ fontSize: '2rem', marginBottom: '16px' }}>{card.icon}</div>
                 <h3 style={{ color: '#1A1A1A', fontSize: '1.2rem', marginBottom: '10px', fontWeight: '700', fontFamily: 'Georgia, serif' }}>
                   {card.title}
                 </h3>
@@ -84,10 +85,10 @@ export default async function HCPHomePage() {
         <div style={{ maxWidth: '900px', margin: '0 auto' }}>
           <div style={{ borderLeft: '4px solid #0000CC', paddingLeft: '24px' }}>
             <h3 style={{ color: '#1A1A1A', marginBottom: '12px', fontSize: '1.1rem', fontWeight: '700' }}>
-              ⚠️ Important Safety Information
+              Important Safety Information
             </h3>
             <p style={{ color: '#555', lineHeight: '1.8', margin: '0 0 12px', fontSize: '0.95rem' }}>
-              pandozab is contraindicated in patients with known hypersensitivity to pandovirumab or any excipients. Use with caution in patients with severe renal or hepatic impairment.
+              Pandozab is contraindicated in patients with known hypersensitivity to pandovirumab or any excipients. Use with caution in patients with severe renal or hepatic impairment.
             </p>
             <p style={{ color: '#555', lineHeight: '1.8', margin: 0, fontSize: '0.95rem' }}>
               Please refer to the full <a href="/hcp/prescribing-info" style={{ color: '#0000CC', fontWeight: '600' }}>Prescribing Information</a> before prescribing.
