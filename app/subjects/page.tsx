@@ -46,21 +46,22 @@ export default async function SubjectsPage() {
       </section>
 
       {/* SUBJECTS LIST */}
-      <section style={{ background: '#FFFFFF', padding: '0' }}>
+      <section style={{ background: '#FFFFFF', padding: '40px' }}>
         <div style={{ maxWidth: '900px', margin: '0 auto' }}>
           {subjects.length === 0 ? (
-            <div style={{ padding: '80px 40px', textAlign: 'center' }}>
+            <div style={{ padding: '80px 0', textAlign: 'center' }}>
               <p style={{ color: '#555' }}>No subject areas available yet. Check back soon.</p>
             </div>
           ) : (
-            <div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
               {subjects.map((subject: any, i: number) => (
                 <a key={subject._id} href={`/subjects/${subject.slug?.current}`} style={{
                   textDecoration: 'none',
                   display: 'flex',
                   alignItems: 'stretch',
+                  borderTop: '1px solid #E0E0E0',
                   borderBottom: '1px solid #E0E0E0',
-                  borderTop: i === 0 ? '1px solid #E0E0E0' : 'none',
+                  background: 'white',
                   transition: 'background 0.2s',
                 }}>
                   {/* COLOR STRIP */}
