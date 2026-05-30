@@ -52,77 +52,111 @@ export default async function SubjectPage({ params }: { params: Promise<{ slug: 
   return (
     <main>
       {/* HERO */}
-      <section style={{ background: 'linear-gradient(135deg, #0a1628 60%, #003087 100%)', padding: '80px 40px', color: 'white' }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-          <a href="/subjects" style={{ color: '#00C896', fontSize: '0.9rem', fontWeight: '600', display: 'inline-block', marginBottom: '24px' }}>
-            ← Back to Subject Areas
+      <section style={{ background: '#0a1628', padding: '100px 40px', color: 'white' }}>
+        <div style={{ maxWidth: '900px', margin: '0 auto' }}>
+          <a href="/subjects" style={{ color: '#00C896', fontSize: '0.85rem', fontWeight: '600', display: 'inline-block', marginBottom: '24px', letterSpacing: '0.05em' }}>
+            ← All Subject Areas
           </a>
-          {subject.icon && (
-            <div style={{ fontSize: '2.5rem', marginBottom: '16px' }}>{subject.icon}</div>
-          )}
-          <h1 style={{ fontSize: '3rem', fontWeight: '900', lineHeight: '1.1', marginBottom: '24px', textTransform: 'uppercase', maxWidth: '700px' }}>
+          <p style={{ color: '#00C896', fontSize: '0.85rem', fontWeight: '700', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '16px' }}>
+            Subject Area
+          </p>
+          <h1 style={{ fontSize: '3.5rem', fontWeight: '900', lineHeight: '1.05', marginBottom: '24px', fontFamily: 'Georgia, serif' }}>
             {subject.title}
           </h1>
           {subject.description && (
-            <p style={{ fontSize: '1.1rem', opacity: 0.85, lineHeight: '1.7', maxWidth: '600px' }}>
+            <p style={{ fontSize: '1.2rem', opacity: 0.75, lineHeight: '1.8', maxWidth: '600px' }}>
               {subject.description}
             </p>
           )}
         </div>
       </section>
 
-      {/* LESSONS */}
-      <section style={{ background: '#F5F5F5', padding: '80px 40px' }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-          <p style={{ color: '#0000CC', fontSize: '0.85rem', fontWeight: '600', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '12px' }}>
-            {subject.lessons?.length ?? 0} {subject.lessons?.length === 1 ? 'Lesson' : 'Lessons'} Available
+      {/* LESSONS LIST */}
+      <section style={{ background: '#FFFFFF', padding: '40px' }}>
+        <div style={{ maxWidth: '900px', margin: '0 auto' }}>
+          <p style={{ color: '#888', fontSize: '0.85rem', marginBottom: '24px' }}>
+            {subject.lessons?.length ?? 0} {subject.lessons?.length === 1 ? 'lesson' : 'lessons'} available
           </p>
-          <h2 style={{ fontSize: '2rem', fontWeight: '800', color: '#0a1628', marginBottom: '48px', fontFamily: 'Georgia, serif' }}>
-            Vocabulary Lessons
-          </h2>
 
           {!subject.lessons?.length ? (
-            <p style={{ color: '#555' }}>No lessons available yet in this subject area. Check back soon.</p>
+            <div style={{ padding: '80px 0', textAlign: 'center' }}>
+              <p style={{ color: '#555' }}>No lessons available yet in this subject area. Check back soon.</p>
+            </div>
           ) : (
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '24px' }}>
-              {subject.lessons.map((lesson: any) => (
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+              {subject.lessons.map((lesson: any, i: number) => (
                 <a key={lesson._id} href={`/vocabulary/${lesson.slug?.current}`} style={{
                   textDecoration: 'none',
-                  display: 'block',
+                  display: 'flex',
+                  alignItems: 'stretch',
+                  borderTop: '1px solid #E0E0E0',
+                  borderBottom: '1px solid #E0E0E0',
                   background: 'white',
-                  borderRadius: '8px',
-                  padding: '32px',
-                  borderTop: `3px solid ${subject.color ?? '#0000CC'}`,
-                  boxShadow: '0 1px 4px rgba(0,0,0,0.06)',
+                  transition: 'background 0.2s',
                 }}>
-                  <h3 style={{ color: '#0a1628', fontSize: '1.2rem', fontWeight: '700', marginBottom: '12px', fontFamily: 'Georgia, serif' }}>
-                    {lesson.title}
-                  </h3>
-                  {lesson.introduction && (
-                    <p style={{ color: '#555', lineHeight: '1.7', fontSize: '0.9rem', marginBottom: '20px' }}>
-                      {lesson.introduction.length > 100 ? lesson.introduction.substring(0, 100) + '...' : lesson.introduction}
-                    </p>
-                  )}
-                  <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', marginBottom: '20px' }}>
-                    {lesson.wordCount > 0 && (
-                      <span style={{ background: '#F5F5F5', color: '#555', padding: '4px 12px', borderRadius: '50px', fontSize: '0.8rem', fontWeight: '600' }}>
-                        {lesson.wordCount} {lesson.wordCount === 1 ? 'word' : 'words'}
-                      </span>
-                    )}
-                    {lesson.practiceAgentEnabled && (
-                      <span style={{ background: '#E6F4F0', color: '#00857C', padding: '4px 12px', borderRadius: '50px', fontSize: '0.8rem', fontWeight: '600' }}>
-                        Practice Agent
-                      </span>
-                    )}
-                    {lesson.scenarioAgentEnabled && (
-                      <span style={{ background: '#E8F0FE', color: '#0000CC', padding: '4px 12px', borderRadius: '50px', fontSize: '0.8rem', fontWeight: '600' }}>
-                        Scenario Agent
-                      </span>
-                    )}
+                  {/* COLOR STRIP */}
+                  <div style={{
+                    width: '6px',
+                    background: subject.color ?? '#0000CC',
+                    flexShrink: 0,
+                  }} />
+
+                  {/* CONTENT */}
+                  <div style={{
+                    flex: 1,
+                    padding: '40px 48px 40px 40px',
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    gap: '40px',
+                  }}>
+                    <div style={{ flex: 1 }}>
+                      <h2 style={{
+                        color: '#0a1628',
+                        fontSize: '1.3rem',
+                        fontWeight: '800',
+                        marginBottom: '12px',
+                        fontFamily: 'Georgia, serif',
+                        lineHeight: '1.3',
+                      }}>
+                        {lesson.title}
+                      </h2>
+                      {lesson.introduction && (
+                        <p style={{
+                          color: '#555',
+                          lineHeight: '1.7',
+                          fontSize: '0.9rem',
+                          margin: '0 0 16px',
+                          maxWidth: '600px',
+                        }}>
+                          {lesson.introduction.length > 120 ? lesson.introduction.substring(0, 120) + '...' : lesson.introduction}
+                        </p>
+                      )}
+                      <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+                        {lesson.wordCount > 0 && (
+                          <span style={{ color: '#888', fontSize: '0.8rem' }}>
+                            {lesson.wordCount} {lesson.wordCount === 1 ? 'word' : 'words'}
+                          </span>
+                        )}
+                        {lesson.practiceAgentEnabled && (
+                          <span style={{ color: '#888', fontSize: '0.8rem' }}>· Practice Agent</span>
+                        )}
+                        {lesson.scenarioAgentEnabled && (
+                          <span style={{ color: '#888', fontSize: '0.8rem' }}>· Scenario Agent</span>
+                        )}
+                      </div>
+                    </div>
+
+                    {/* ARROW */}
+                    <div style={{
+                      color: subject.color ?? '#0000CC',
+                      fontSize: '1.5rem',
+                      fontWeight: '300',
+                      flexShrink: 0,
+                    }}>
+                      →
+                    </div>
                   </div>
-                  <span style={{ color: subject.color ?? '#0000CC', fontWeight: '700', fontSize: '0.9rem' }}>
-                    Start Lesson →
-                  </span>
                 </a>
               ))}
             </div>
