@@ -4,11 +4,12 @@ import { theme } from '../../../theme'
 
 export const revalidate = 60
 
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params
   const caseStudy = await client.fetch(`*[_type == "caseStudy" && slug.current == $slug][0]{
     title,
     clinicalChallenge
-  }`, { slug: params.slug })
+  }`, { slug })
 
   return {
     title: `${caseStudy?.title ?? 'Case Study'} | Pandozab (pandovirumab)`,
@@ -41,8 +42,9 @@ async function getCaseStudy(slug: string) {
   }`, { slug })
 }
 
-export default async function CaseStudyPage({ params }: { params: { slug: string } }) {
-  const caseStudy = await getCaseStudy(params.slug)
+export default async function CaseStudyPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params
+  const caseStudy = await getCaseStudy(slug)
 
   if (!caseStudy) {
     return (
